@@ -85,7 +85,7 @@ class HotelController extends Controller
      */
     public function update(Request $request, $id)
     {
-        dd($request);
+        //dd($request);
         $hotel = Hotel::find($id);
         $hotel->fill($request->all());
         $hotel->save();

@@ -52,15 +52,17 @@
 			</div>
 			<div class="row">
 			@foreach ($datos[1] as $i)
-				<div class="col-md-4 animate-box">
-					<div class="services">
-						<i class="{{$i->icono}}" style="color:black"></i>
-						<div class="desc">
-							<h3>{{$i->nombre}}</h3>
-							<p style="font-size:14px">{{$i->descripcion}}</p>
+				@if ($i->estado == 'true')
+					<div class="col-md-4 animate-box">
+						<div class="services">
+							<i class="{{$i->icono}}" style="color:black"></i>
+							<div class="desc">
+								<h3>{{$i->nombre}}</h3>
+								<p style="font-size:14px">{{$i->descripcion}}</p>
+							</div>
 						</div>
 					</div>
-				</div>
+				@endif
 			@endforeach
 			</div>
 		</div>

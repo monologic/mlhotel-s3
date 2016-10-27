@@ -30,7 +30,7 @@
 								<figure>
 									<figcaption>
 										<h4 style="font-size:1.1em;">{{$fotos->titulo}}</h4>
-										<p>{{$fotos->descripcion}}</p>
+										<p>{!!$fotos->descripcion!!}</p>
 									</figcaption>
 									<div class="vdo">
 								    	<img src="imagen/galery/{{$fotos->imagen}}" alt="{{$fotos->titulo}} residencial moquegua hotel">

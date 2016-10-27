@@ -15,9 +15,8 @@
 							<img class="img-responsive" src="imagen/Noticia/{{$not->imagen}}" alt="{{$not->titulo}}" style="max-height:250px;width:100%">
 							<div class="v-align">
 								<div class="v-align-middle">
-									<h3 class="title">{{$not->titulo}}</h3>
+									<h3 class="title" style=" min-height:55px">{{$not->titulo}}</h3>
 									<h5 class="date" style="color:black"><span>{{$not->fecha}}</span> | <span>{{$not->fuente}}</span></h5>
-									<p style="color:black">{{$not->resumen}}</p>
 								</div>
 							</div>
 							<div class="col-md-12 text-center animate-box">

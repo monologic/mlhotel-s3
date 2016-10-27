@@ -201,6 +201,7 @@ app.controller('hotelController', function($scope,$http) {
                 $http.put('admin/icogeneral/'+$scope.iconoshotel[i].id,
                 {   'estado':$scope.iconoshotel[i].estado
                 }).then(function successCallback(response) {
+                    $scope.getHoteles();
                 }, function errorCallback(response) {
                     
                 });
