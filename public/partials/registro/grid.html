@@ -1,0 +1,93 @@
+<div id="page-wrapper" ng-controller="registroController" ng-init="ponerFecha2()" style="width: 90%;margin:20px auto 100px auto">
+    <br><br><br>
+    <div>
+    <h3 class="tit2">Disponibilidad por días</h3>
+    <div class="center-block" style="color: black;width: 400px;margin-top: 80px">
+        <table>
+            <form>
+                <tr>
+                    <td style="min-width:200px;padding:0px 10px 0px 10px "><label for="fechaini" >Fecha Inicio</label></td>
+                    <td style="min-width:200px;padding:0px 10px 0px 10px "><label for="fechafin">Fecha Fin</label></td>
+                </tr>
+                <tr>
+                    <td style="min-width:200px;padding:0px 10px 0px 10px " >
+                        <div class="form-group ">
+                            <input type="date" class="form-control" id="desde" ng-model="desde">
+                            <div class="cl"><img class="cld" src="plugins/css/imgc.png" alt=""></div>
+                        </div>
+                    </td>
+                    <td style="min-width:200px;padding:0px 10px 0px 10px " >
+                        <div class="form-group">
+                            <input type="date" class="form-control" id="hasta" ng-model="hasta">
+                            <div class="cl"><img class="cld" src="plugins/css/imgc.png" alt=""></div>
+                        </div>
+                    </td>
+                    <td>
+                        <a href="" class="btn btn-primary" ng-click="getDisponibilidad ();" style="margin-top:-20px">Buscar</a>
+                    </td>
+                </tr>
+            </form>
+        </table>
+    </div>
+    <div id="Disponibilidad">
+        <table class="table" id="grid" style="display: none;margin-top: 50px;right: 30px;left: 0;">
+            <thead>
+                <tr>
+                    <th style="border:solid;border-width: 1px;border-color: #ddd">Tipo de habitacion</th>
+                    <th  ng-repeat='(fecha ,h) in grid' style="border:solid;border-width: 1px;border-color: #ddd">{{fecha |date:mediumDate}}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="height: 50px; min-width:200px; padding: 0" >
+                        <table class="table table-bordered" style="width: 100%" >
+                            <tbody>
+                                <tr ng-repeat='q in tipohabs'>
+                                    <td>{{q.nombre}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+
+                    <td ng-repeat='(fecha,r) in grid' style="padding: 0">
+                        <table class="table table-bordered" style="width: 100%">
+                            <tbody>
+                                <tr ng-repeat="j in r">
+                                    <td ng-if="j.outdated == 1" style=" background-color: #bdc3c7;text-align: center">{{j.disponibles}}</td>
+                                    <td ng-if="j.outdated == 0" style="text-align: center">{{j.disponibles}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+            </tbody>
+
+        </table>
+    </div>
+    </div>
+    <br>
+    <button class="btn btn-primary" ng-click="printDiv('Disponibilidad');"><span class="glyphicon glyphicon-print" aria-hidden="true"></span> Imprimir</button>
+</div>
+<style type="text/css">
+
+@media screen {
+    #printSection {
+        display: none;
+    }
+}
+
+@media print {
+    body * {
+        visibility:hidden;
+    }
+    #printSection, #printSection * {
+        visibility:visible;
+    }
+    #printSection {
+        position:absolute;
+        left:0;
+        top:0;
+    }
+}
+
+</style>

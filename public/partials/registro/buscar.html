@@ -1,0 +1,72 @@
+<div id="page-wrapper" ng-controller="registroController" ng-init="ponerFecha();" style="width: 80%;margin:20px auto 100px auto">
+    <br><br><br>
+    <h3 class="tit2">Registro sin reserva</h3>
+    <br><br>
+    <div class="formularios">
+        <table>
+            <form>
+                <tr>
+                    <td style="min-width:200px;padding:0px 10px 0px 10px "><label for="fechaini" >Fecha Inicio</label></td>
+                    <td style="min-width:200px;padding:0px 10px 0px 10px "><label for="fechafin">Fecha Fin</label></td>
+                    
+                </tr>
+                <tr>
+                    <td style="min-width:200px;padding:0px 10px 0px 10px " >
+                        <div class="form-group ">
+                            <input type="date" class="form-control" id="fechaini" ng-model="fechaini" min="{{fechaini}}" max="{{fechaini}}">
+                            <div class="cl"><img class="cld" src="plugins/css/imgc.png" alt=""></div>
+                        </div>
+                    </td>
+                    <td style="min-width:200px;padding:0px 10px 0px 10px " >
+                        <div class="form-group">
+                            <input type="date" class="form-control" id="fechafin" ng-model="fechafin" min="{{tomorrow}}">
+                            <div class="cl"><img class="cld" src="plugins/css/imgc.png" alt=""></div>
+                        </div>
+                    </td>
+                    <td>
+                        <a href="" class="btn btn-primary" ng-click="buscar();" style="margin-top:-20px">Buscar</a>
+                    </td>
+                </tr>
+            </form>
+        </table>
+    </div>
+    <pre id="alertCambio" class="bg-warning" style="color:black;">No se encontraron habitaciones disponibles. <button type="button" onclick="$('#alertCambio').css('display','none')" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button></pre>
+    <br>
+    <div>
+        <a href="" class="btn btn-success" id="guardarChecks" ng-click="guardarRegistros(); "style="display:none;position: fixed;bottom:50px;right: 50px">Guardar Cambios</a>
+    </div>
+    <div ng-repeat="habtipo in tipoPerHabs">
+        <h3 style="color:black">{{habtipo.nombre}}</h3>
+        <div class="row">
+            <div class="col-md-6"> <div style="width: 60%;left: 0;height: 35px;text-align: center; border-radius: 5px 5px 0px 0px; background-color:#1E8BC3;color:black;font-size: 1.6rem; font-weight: bold;padding-top: 5px">Reservadas: {{habtipo.habtiporeservascount}}</div></div> 
+            <div class="col-md-6"> 
+                    <div ng-if="habtipo.disponibles >= 0" style="width: 60%;left: 0;height: 35px;text-align: center; border-radius: 5px 5px 0px 0px; background-color:#F9690E;color:black;font-size: 1.6rem; font-weight: bold;padding-top: 5px">Disponibles: {{ habtipo.disponibles }}</div>
+                    <div ng-if="habtipo.disponibles < 0" style="width: 60%;left: 0;height: 35px;text-align: center; border-radius: 5px 5px 0px 0px; background-color:#c0392b;color:black;font-size: 1.6rem; font-weight: bold;padding-top: 5px">Disponibles: 0</div>
+                    </div>  
+        </div>
+        <div class="row">
+            <table class="table table-hover col-md-12" style="margin: -10px 0px 30px 10px; box-shadow: 5px 5px 5px #888888;">
+                <thead>
+                    <tr>
+                        <th>Número Habitación</th>
+                        <th>Estado</th>
+                        <th>Tipo de Habitación</th>
+                        <th>Ocupar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="p in habtipo.habitaciones | orderBy:'numero' " on-finish-render="ngRepeatFinished">
+                        <td>{{p.numero}}</td>
+                        <td>{{p.estado.nombre}}</td>
+                        <td>{{habtipo.nombre}}</td>
+                        <td>
+                            
+                            <input type="checkbox" id="{{ p.numero }}" ng-change="clickOnCheck(p);" ng-model="checks" class="checks th{{ habtipo.id }}" style="left:45%">
+                        </td>
+                      </tr>
+                </tbody>
+            </table>
+        </div>    
+    </div>
+    
+

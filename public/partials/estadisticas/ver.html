@@ -1,0 +1,168 @@
+<div id="page-wrapper" ng-controller="estadisticasController" style="padding-bottom: 40px">
+	<br><br>
+	<h3 class="tit2">Estadísticas</h3>
+	<div class="row" style="width:100%;max-width:400px;margin:80px auto 20px auto">
+		<div class="col-md-5 col-xs-5">
+			<p style="color:black">Mes</p>
+			<select class="form-control" id="mes">
+				<option value="1">Enero</option>
+				<option value="2">Febrero</option>
+				<option value="3">Marzo</option>
+				<option value="4">Abril</option>
+				<option value="5">Mayo</option>
+				<option value="6">Junio</option>
+				<option value="7">Julio</option>
+				<option value="8">Agosto</option>
+				<option value="9">Septiembre</option>
+				<option value="10">Octubre</option>
+				<option value="11">Noviembre</option>
+				<option value="12">Diciembre</option>
+			</select>
+		</div>
+		<div class="col-md-5 col-xs-5">
+			<p style="color:black">Año</p>
+			<select class="form-control" id="year">
+				
+					<option value="2016">2016</option>
+					<option value="2017">2017</option>
+					<option value="2018">2018</option>
+				</select>
+		</div>
+		<div class="col-md-2 col-xs-2">
+			<button class="btn btn-primary" style="margin-top:25px" ng-click='generar();buscarE()'>Generar</button>
+		</div>
+		
+	</div>
+	<p class="txte tabq">CAPACIDAD DE ALOJAMIENTO OFERTADA / UTILIDAD Y TARIFAS DEL MES</p>
+	<table class="table table-bordered tabq" style="margin-top:50px">
+		<thead>
+			<tr>
+				<th></th>
+				<th class="text-center" colspan="3">Alojamiento ulitizado</th>
+			</tr>
+			<tr>
+				<th>Tipo de Habitación</th>
+				<th># Arribos</th>
+				<th># Noches</th>
+				<th># Pernoctaciones</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="q in arribosTipo">
+				<td>{{q.nombre}}</td>
+				<td>{{q.arribos}}</td>
+				<td>{{q.habitaciones_noche}}</td>
+				<td>{{q.pernoctaciones_tipo}}</td>
+			</tr>
+		</tbody>
+	</table>
+	<p class="txte tabq">NUMERO DE ARRIBOS DE HUSPEDES POR DÍA DEL MES</p>
+	<table class="table table-bordered tabq" style="margin-top:50px">
+		<thead>
+			<tr>
+				<th colspan="2"># Arribos por dias</th>
+			</tr>
+		</thead>
+		<thead>
+			<tr>
+				<th>Dia</th>
+				<th># Arribos</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="t in todo">
+				<td>{{t.dia | date:'fullDate'}}</td>
+				<td>{{t.arribos}}</td>
+			</tr>
+		</tbody>
+	</table>
+	<div>
+	<p class="txte tabq">ARRIBOS Y PERNOCTACIONES SEGÚN LUGAR DE RESIDENCIA DEL HUÉSPED</p>
+		<div class="row">
+			<p class="txte tabq">Por paices</p>
+			
+				<div class="col-md-6">
+					<table class="table table-bordered tabq" style="margin-top:25px">
+						<thead>
+							<tr>
+								<th colspan="2" style="text-align: center;font-weight: bold;"># Arribos por país</th>
+							</tr>
+							<tr>
+								<th>Pais</th>
+								<th># Arribos</th>
+
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="p in paices">
+								<td>{{p.pais}}</td>
+								<td>{{p.arribos}}</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="col-md-6">
+					<table class="table table-bordered tabq" style="margin-top:25px">
+						<thead>
+							<tr>
+								<th colspan="2" style="text-align: center;font-weight: bold;"># Pernoctaciones por país</th>
+							</tr>
+							<tr>
+								<th>Pais</th>
+								<th># Pernoctaciones</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="g in paicesP">
+								<td>{{g.pais}}</td>
+								<td>{{g.pernoctaciones_pais}}</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+		</div>
+		<div class="row">
+			<p class="txte tabq">Por regiones</p>
+			
+			<div class="col-md-6">
+				<table class="table table-bordered tabq" style="margin-top:25px">
+					<thead>
+						<tr>
+							<th colspan="2" style="text-align: center;font-weight: bold;"># Arribos por Regiones</th>
+						</tr>
+						<tr>
+							<th>Región</th>
+							<th># Arribos</th>
+
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="ty in regionA">
+							<td>{{ty.ciudad}}</td>
+							<td>{{ty.arribos}}</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="col-md-6">
+				<table class="table table-bordered tabq" style="margin-top:25px">
+					<thead>
+						<tr>
+							<th colspan="2" style="text-align: center;font-weight: bold;"># Pernoctaciones por Regiones</th>
+						</tr>
+						<tr>
+							<th>Región</th>
+							<th># Pernoctaciones</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="th in regionN">
+							<td>{{th.ciudad}}</td>
+							<td>{{th.pernoctaciones_pais}}</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>

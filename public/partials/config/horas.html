@@ -1,0 +1,23 @@
+<div id="page-wrapper" ng-controller="hotelController" ng-init="getHotel();">
+<br><br>
+<label>{{mensaje}}</label>
+   
+    <h3 class="text-center tit2">Configuración de Check-in y Check-out</h3>
+    <div class="formularios">    
+    <form ng-submit="configCheckout()">
+        <p class="bg-success" style="padding: 10px;color: black">Expresar la horas en sistemas 12 horas.</p>
+        <div class="form-group">
+            <label for="">Check-In</label>
+            <input type="time" class="form-control" id="checkin" placeholder="Hora de ingreso al hotel" ng-model="checkin" required><div>Ejemplo 6:30 AM</div>
+        </div><br>
+         <div class="form-group">
+            <label for="">Check-out</label>
+            <input type="time" class="form-control" id="checkout" placeholder="Hora de salida del Hotel" ng-model="checkout" required><div>Ejemplo 07:30 PM</div>
+        </div>
+        <div class="inputs">
+            <button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-ok" aria-hidden="true"> Guardar</button><br>
+        </div>
+    </form>
+    </div>
+
+</div>

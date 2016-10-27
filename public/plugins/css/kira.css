@@ -1,0 +1,479 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
+@import url(https://fonts.googleapis.com/css?family=Ubuntu);
+*{
+	padding: 0;
+	margin: 0;
+	list-style-type: none;
+	list-style: none;
+}
+.reds{
+	width: 100%;
+	margin: 20px auto 20px auto;
+
+}
+.reds div div i{
+	font-size: 3rem;
+	margin-top: 20px;
+}
+.nomsocial{
+	display: inline-block;
+	width: 100px;
+	padding-left: 15px;
+}
+.vr{
+	background-color: red;
+	margin-bottom: 10px;
+}
+.inpkira{
+	visibility: hidden;
+	height: 35px;
+	border-radius: 5px;
+	width: 50%;
+}
+.socialB{
+	width: 35px;
+	height: 35px;
+	border-radius: 50%;
+	text-align: center;
+	font-size:1.6rem;
+	padding-top: 10px;
+	color: white;
+	margin-left: 10px;
+	margin-bottom: 15px
+}
+.marginez{
+	margin-top: 20px
+	margin-bottom:20px;
+}
+.txte{
+	margin-top: 30px;
+	color: black;
+	text-align: center;
+	font-weight: bold;
+	color: #428bca;
+
+}
+.tabq{
+	visibility: hidden;
+	width: 100%;
+}
+.imp{
+	display: none;
+}
+.max{
+	max-width: 300px;
+}
+.negrita{
+	font-weight: bold;
+}
+.coments{
+	left: -50px;
+	background-color:#1BBC9B;
+	padding: 7px;
+	border-radius: 50%;
+}
+.coments:hover{
+	cursor: pointer;
+}
+.menu__wrap{
+	margin-top: -40px
+}
+::-webkit-inner-spin-button {
+    height: 30px;
+    display:none;
+  }
+::-webkit-calendar-picker-indicator {
+    font-size: 18px;
+    width:30px;
+    color:transparent;
+    z-index:-10px;
+}
+::-webkit-calendar-picker-indicator:hover{
+	background-color: transparent;
+}
+.cl{
+	margin-top:-30px;
+}
+.cld{
+	width: 20px;
+	height: 20px;
+	top:-20px;
+	margin-left: 140px;
+}
+.cp{
+	left: 150px;
+	top: -25px;
+	z-index: -20px;
+}
+input[type=date] {
+    background-color: transparent;
+    display: block;
+    position: relative;
+}
+.mainservice{
+	width: 80%;
+	margin: 50px auto 50px auto;
+	border-bottom:solid;
+	border-width: 1px;
+	padding-bottom: 100px;
+}
+.inform{
+	width: 80%;
+	margin:20px auto 20px auto;
+}
+.hotel{
+	width: 70%;
+	left: 0;
+	border-color: transparent;
+	border-radius: 10px;
+	color: black;
+	padding: 15px;
+	background-color: #b2dfdb;
+}
+#alertCambio{
+	display: none;
+	border-color: transparent;
+	color: green;
+	font-family: ubuntu;
+}
+#alertDelete{
+	display: none;
+	border-color: transparent;
+	color: red;
+	font-family: ubuntu;
+}
+.cont-pago{
+	width: 80%;
+	margin: 40px auto 20px auto;
+}
+/*Emergente de la vita detalle habitacion*/
+.separador{
+	display: block;
+	border-top: solid rgb(200,200,200) ;
+	border-width: 1px;
+}
+.cont-hues{
+	margin: 20px ;
+	min-height: 250px;
+	border: solid rgb(200,200,200);
+	border-radius: 10px;
+	border-width: 1px;
+}
+.addcliente{
+	display: block;
+	position: fixed;
+	top:50px;
+	right: 0px;
+	width: 0px;
+	height:96%;
+	background-color:white;
+	border: solid;
+	border-color: rgb(200,200,200);
+	border-width: 1px;
+	overflow: scroll;
+}
+.form-registro{
+	width: 90%;
+	margin: 10px auto 10px auto;
+
+}
+::-webkit-scrollbar{
+  width: 10px;
+  background: #dbe8ec;
+}
+::-webkit-scrollbar-button{
+  width:8px;
+  height: 5px;
+}
+::-webkit-scrollbar-track{
+  background-color:rgb(200,200,200);
+  border:thin solid white;
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb{
+  background-color:#4183D7;
+  -webkit-box-shadow:   inset 0 1px 0 rgba(255,255,225,.5),
+                inset 1px 0 0 rgba(255,255,255,.4),
+                inset 0 1px 2px rgba(255,255,255,.3);
+ 
+
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover{
+    background-color:#446CB3
+}
+/* Pseudo-clase */
+::-webkit-scrollbar-thumb:window-inactive {
+  background: rgba(77,161,112,.6);
+}
+.cont-img{
+
+	display: block;
+	border: solid;
+	border-color: rgb(200,200,200);
+	border-width: 2px;
+	border-radius: 10px;
+	padding: 25px;
+	width: 80%;
+	margin: 20px auto 40px auto;
+}
+.btn-plusimg{
+	float: right;
+
+
+}
+.cont-btn{
+	border-bottom: solid;
+	border-color: rgb(200,200,200);
+	border-width: 2px;
+
+}
+.cont-icos{
+	width: 80%;
+	margin: 30px auto 20px;
+	border: solid;
+	border-width: 2px;
+	border-radius: 10px;
+	border-color: rgb(200,200,200);
+	padding: 30px 15px 15px 15px;
+	color: black;
+}
+´.btn-margin{
+	display: block;
+	width: 100%;
+	background-color: red;
+	border-top:solid;
+	border-width: 2px;
+	border-color: rgb(200,200,200); 
+}
+
+input[type=checkbox] {
+	display: ;
+}
+input[type=checkbox] + label:before {
+    content: "";  
+    display: inline-block;  
+    width: 25px;  
+    height: 25px;  
+    vertical-align:middle;
+    margin-right: 8px;  
+    background-color:white;  
+    border: solid;
+    border-width: 3px;
+    border-color: white;
+
+}
+input[type=checkbox]:checked + label:before {
+    
+    width: 100px;
+    height: 10px;
+   	margin-bottom:-25px;
+    color:transparent;
+    background-color: blue; 
+    text-align:center;
+    font-size: 3rem;
+    line-height:10px;
+    text-shadow:0px 0px 3px #eee;
+    transition: all 0.5s;
+}
+.tabla-hab{
+	width: 70%;
+}
+.static-reserva{
+	display: block;
+	position: fixed;
+	right: 20px;
+	top:40%;
+	min-width: 250px;
+	background-color:transparent;
+
+}
+.reserva-item{
+
+	background-color:white;
+	color: black;
+	border: solid;
+	border-width: 1px;
+	border-color:rgb(150,150,150);
+	width: 100%;
+	text-align: left;
+
+}
+.contenidogrande{
+	width: 100%;
+}
+.tit{
+	font-size: 4rem;
+	margin-top:100px;
+	color: #446CB3;
+}
+.contenedor{
+	width: 90%;
+	margin:20px auto 20px auto;
+	padding: 10px;
+	color: rgb(80, 80, 80);
+	margin-top: 40px;
+	padding-top: 10px;
+	font-family: 'Montserrat', sans-serif;
+
+}
+.objeto{
+
+	display: inline-block;
+	position: relative;
+	background: transparent;
+	width: 150px;
+	height: 150px;
+	margin: 20px;
+	color: #3A539B;
+
+}
+.objeto:hover{
+	background-color:#446CB3;
+	color: white;
+}
+.superior{
+	width: 100%;
+	height: 70%;
+
+}
+.inferior{
+	width: 100%;
+	height: 30%;
+	font-size: 1.6rem;
+}
+.objeto div span{
+	font-size: 5rem;
+	margin-top:25px;
+}
+.tit2{
+	color: #428bca;	
+	font-size: 2.7rem;
+	text-align: center;
+	top: 30px;
+	
+	font-weight: bold;
+	font-family: 'Montserrat', sans-serif;
+}
+.formularios{
+	display: flex;
+	padding: 0px;
+	color: rgb(60,60,60);
+	margin-top: 50px;
+	
+}
+.inputs{
+	margin:auto;
+}
+.inputs a span{
+	
+	font-size: 6rem;
+	color: #428bca;	
+}
+.inputs a p{
+	font-size: 1.4rem;
+	color: #428bca;	
+	font-family: 'Ubuntu', sans-serif;
+}
+
+form{
+	margin-top: 25px;
+	display: block;
+	width: 50%;
+	color:#4183D7;;	
+	font-family: 'Montserrat', sans-serif;
+	margin-left: 50px;
+}
+
+
+li a span{
+	font-size: 1.8rem;
+	color:#446CB3;
+}
+.li{
+	color:#446CB3;
+	font-size: 1.6rem;
+}
+
+.li:hover{
+	color: #446CB3;
+}
+
+/*--Hotel estilos*/
+.table{
+	color: black;
+	width:80%;
+	margin: auto;
+	top:20px;
+}
+.hb{
+	display: block;
+	position: relative;
+	float: right;
+	width: 180px;
+}
+/* Navbar kira mi menu de elementos top*/
+.fix{
+	display: inline-block;
+	position: fixed;
+	top: 0;
+	width:97%;
+	right: 9px;
+	padding-left: 10%;
+	z-index: 50;
+	background-color: white;
+	padding-bottom: 30px;
+	box-shadow: 0px 2px 1px #888888;
+
+}
+.submenu{
+	display: inline-block;
+	position: relative;
+	width: 100%;
+	right: 0;
+	height: 50px;
+	padding:10px 50px 10px;
+}
+
+ul.navbar-right li {
+    display: inline;
+   	margin-left: 20px;
+}
+ul.navbar-right li a {
+
+    text-decoration: none;   
+}
+
+
+/* Galeria de fotos de Habitacion*/
+.cont-foto{
+	display: block;
+	position: relative;
+	width: 80%;
+	padding: 20px;
+	background-color: rgb(240,240,240);
+	border-radius: 10px;
+}
+.galeria-f{
+	display: inline-block;
+	position: relative;
+	width: 165px;
+	margin-left: 20px;
+	margin-bottom: 20px;
+}
+.btn-x{
+	display: block;
+	position: absolute;
+	width: 25px;
+	height: 25px;
+	background-color: black;
+	border-radius: 50%;
+	text-align: center;
+	top:-10px;
+	right:-10px;
+	padding-top: 3px;
+}
+

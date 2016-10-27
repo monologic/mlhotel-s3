@@ -1,0 +1,74 @@
+<div id="page-wrapper" ng-controller="registroController" style="width: 80%;margin:20px auto 100px auto" ng-init="getReservaInfo();">
+    <br><br><br>
+    <h3 class="tit2">Asignar Habitaciones</h3>
+    <br><br>
+    <div class="formularios ">
+            <div class="row"style="width: 100%" >
+                <div class="col-md-3">
+                    <span class="glyphicon glyphicon-align-left" aria-hidden="true"></span>  &nbsp;
+                     Código : {{ y.codigo_reserva }} 
+                </div>
+                <div class="col-md-3">
+                    {{ y.cliente.nombres }} {{ y.cliente.apellidos }}
+                </div>
+                <div class="col-md-3">
+                    Entrada: {{ y.fecha_inicio }}
+                </div>
+                <div class="col-md-3" style="text-align: right">
+                    {{ y.pagotipo.pagotipo }}
+                </div>
+                
+            </div>
+            
+        </div>
+        <div class="static-reserva">
+            <h4 class="text-center">Habitaciones</h4>
+            <table class="table">
+                <thead>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="z in Reservas.habtiposcount">
+                        <td>{{ z.nombre }}</td>
+                        <td>{{ z.count }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    <br>
+    <div>
+        <a href="" class="btn btn-success" id="guardarChecks" ng-click="guardarRegistros(); " style="display:none;position: fixed;bottom:50px;right: 50px">Guardar Cambios</a>
+    </div>
+    <div ng-repeat="habtipo in tipoPerHabs">
+        <h3 style="color:black">{{habtipo.nombre}}</h3>
+        <div class="row">
+            <div class="col-md-6"> <div style="width: 60%;left: 0;height: 25px;text-align: center; border-radius: 5px 5px 0px 0px; background-color:#1E8BC3;color:black;">Reservadas: {{habtipo.habtiporeservascount}}</div></div> 
+            <div class="col-md-6"> <div style="width: 60%;left: 0;height: 25px;text-align: center; border-radius: 5px 5px 0px 0px; background-color:#F9690E;color:black;">disponibles: {{habtipo.habitacionescount - habtipo.habtiporeservascount}}</div></div>  
+        </div>
+        <div class="tabla-hab">
+            <table class="table table-hover" style="margin: -10px 0px 30px 10px; box-shadow: 5px 5px 5px #888888;">
+                <thead>
+                    <tr>
+                        <th>Número Habitación</th>
+                        <th>Estado</th>
+                        <th>Ocupar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="p in habtipo.habitaciones">
+                        
+                        <td>{{p.numero}}</td>
+                        <td>{{p.estado.nombre}}</td>
+                        <td>
+                            <div class="checkbox">
+                              <label>
+                                <input type="checkbox" id="{{ p.numero }}" ng-change="clickOnCheck(p);" ng-model="checks" class="checks" style="left: 45%">
+                              </label>
+                            </div>
+                        </td>
+                      </tr>
+                </tbody>
+            </table>
+        </div>    
+    </div>
+    
+

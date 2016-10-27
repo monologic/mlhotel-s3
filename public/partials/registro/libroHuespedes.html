@@ -1,0 +1,101 @@
+<div id="page-wrapper" ng-controller="registroController" ng-init="ponerFecha()" style="width: 80%;margin:20px auto 100px auto">
+    <br><br><br>
+    <h3 class="tit2">Bitácora</h3>
+    <br><br>
+    <div class="formularios">
+        <table>
+            <form>
+                <tr>
+                    <td style="min-width:200px;padding:0px 10px 0px 10px "><label for="fechaini" >Fecha Inicio</label></td>
+                    <td style="min-width:200px;padding:0px 10px 0px 10px "><label for="fechafin">Fecha Fin</label></td>
+                </tr>
+                <tr>
+                    <td style="min-width:200px;padding:0px 10px 0px 10px " >
+                        <div class="form-group ">
+                            <input type="date" class="form-control" id="fechaini" ng-model="fechaini">
+                            <div class="cl"><img class="cld" src="plugins/css/imgc.png" alt=""></div>
+                        </div>
+                    </td>
+                    <td style="min-width:200px;padding:0px 10px 0px 10px " >
+                        <div class="form-group">
+                            <input type="date" class="form-control" id="fechafin" ng-model="fechafin">
+                            <div class="cl"><img class="cld" src="plugins/css/imgc.png" alt=""></div>
+                        </div>
+                    </td>
+                    <td>
+                        <a href="" class="btn btn-primary" ng-click="getRegistros();" style="margin-top:-20px">Buscar</a>
+                    </td>
+                </tr>
+            </form>
+        </table>
+    </div>
+    <div id="Libro">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th style="min-width: 120px">Hab. Asignada</th>
+                    <th style="min-width: 170px">Fecha de Entrada</th>
+                    <th style="min-width: 200px">Nombre y Apellidos</th>
+                    <th style="min-width: 150px" >Profesión</th>
+                    <th style="min-width: 100px">Estado Civil</th>
+                    <th>Edad</th>
+                    <th style="min-width: 200px">Documento de Identidad</th>
+                    <th style="min-width: 150px">Lugar de Residencia</th>
+                    <th style="min-width: 150px">Pais de Residencia</th>
+                    <th style="min-width: 100px">Procedencia</th>
+                    <th style="min-width: 100px">Destino</th>
+                    <th style="min-width: 170px">Fecha Salida</th>
+                    <th style="min-width: 100px">Total Pagado</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat='r in registros'>
+                    <td>{{ r.registro.habitacion.numero }}</td>
+                    <td>{{ r.registro.solofe | date:'d MMM yyyy' }} | {{ r.registro.solohe }}</td>
+                    <td>{{ r.cliente.nombres }} {{ r.cliente.apellidos }}</td>
+                    <td>{{ r.cliente.prof_ocup }}</td>
+                    <td>{{ r.cliente.estado_civil }}</td>
+                    <td>{{ r.cliente.edad }}</td>
+                    <td>{{ r.cliente.dni }}</td>
+                    <td>{{ r.cliente.ciudad }}</td>
+                    <td>{{ r.cliente.pais }}</td>
+                    <td>{{ r.procedencia }}</td>
+                    <td>{{ r.destino }}</td>
+                    <td>{{ r.registro.solofs | date:'d MMM yyyy' }} | {{ r.registro.solohs }}</td>
+                    <td>{{ r.registro.total }}</td>
+                </tr>
+            </tbody>
+
+        </table>
+    </div>
+    <br>
+    <button class="btn btn-primary" ng-click="printDiv2('Libro');"><span class="glyphicon glyphicon-print" aria-hidden="true"></span> Imprimir</button>
+</div>
+
+<style type="text/css">
+
+@media screen {
+    #printSection {
+        display: none;
+    }
+}
+
+@media print {
+    body * {
+        visibility:hidden;
+    }
+    #printSection, #printSection * {
+        visibility:visible;
+    }
+    #printSection {
+
+        position: absolute;
+        left:0;
+        top:0;
+        font-size: 15px;
+        
+        background-color: green;
+    }
+}
+
+</style>

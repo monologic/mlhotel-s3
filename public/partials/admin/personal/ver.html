@@ -1,0 +1,41 @@
+<div id="page-wrapper" ng-controller="personalController" ng-init="getHoteles();cabeceraTabla();">
+    <br><br><br>
+    <h3 class="tit2">Usuarios y Empleados</h3>
+    <form class="form-inline">
+        <div class="form-group">
+            <label>Tipo</label>
+            <select ng-model="modelo" class="form-control" id="modelo">
+                <option value="empleado">Empleados</option>
+                <option value="usuario">Usuarios</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Hotel</label>
+            <select id="hotel" ng-model='hotel' ng-options="hotel.nombre for hotel in hoteles track by hotel.id" class="form-control">
+                <option value="">Seleccione una Opción...</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <a href="" class="btn btn-primary" ng-click="buscar();">Buscar</a>
+        </div>
+    </form>
+    <hr>
+    <table class="table table-hover">
+    	<thead>
+
+    		<tr>
+    			<th>#</th>
+    			<th>Nombre</th>
+                <th>Cargo</th>
+    			<th ng-if="tModelo == 'usuario'">Usuario</th>
+    		</tr>
+    	</thead>
+    	<tbody>
+    		<tr ng-repeat="x in personal">
+			    <td>{{$index+1}}</td>
+                <td>{{x.nombres}} {{x.apellidos}}</td>
+                <td>{{x.emptipo.tipo}}</td>
+			  </tr>
+    	</tbody>
+  	</table>
+</div>

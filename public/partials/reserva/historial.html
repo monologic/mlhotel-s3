@@ -1,0 +1,109 @@
+<div id="page-wrapper" ng-controller="reservaController" ng-init="getAllreserva();" style="margin-top: 30px">
+    <br><br><br>
+    <h3 class="tit2">Historial de Reservas</h3>
+    <br><br>
+    
+   <div style="width: 300px;margin-left: 100px">
+       <input type="text" class="form-control" ng-model="buscar" style="width: 320px"><i class="glyphicon glyphicon-search" style="top:-25px;float: right;color: black"></i>
+   </div>
+   
+    <br>
+    <div id="resultado"></div>
+    <br>
+    <table class="table table-hover">
+    	<thead>
+    		<tr>
+    			<th>Código</th>
+    			<th>Check in</th>
+                <th>Check out</th>
+                <th>Nombres y Apellidos</th>
+                <th>Estado</th>
+    		</tr>
+    	</thead>
+    	<tbody>
+               <tr ng-repeat="x in allreservas | filter:buscar | orderBy:'fecha_inicio':true">
+                    <td>{{x.codigo_reserva}}</td>
+                    <td>{{x.soloFecha |  date:'d MMM yyyy'}}</td>
+                    <td>{{x.soloFecha2 |  date:'d MMM yyyy'}}</td>
+                    <td>{{x.cliente.nombres}} {{x.cliente.apellidos}}</td>
+                    <td>{{x.reservaestado.estado}}</td>
+                    <td><a  class="btn btn-primary" href="" ng-click="verCliente(x);" data-toggle="modal" data-target="#vercliente"><i class="glyphicon glyphicon-plus"></i></a></td>
+              </tr> 
+    	</tbody>
+  	</table>
+    <div class="modal fade" id="vercliente" tabindex="-1" role="dialog" aria-labelledby="vercliente">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Información de la reserva</h2>
+                </div>
+                <div class="modal-body row" style="color:black;font-size: 1.5rem">
+                    <table class="table-striped table-bordered table-responsive" style="width: 80%; margin: 20px auto 20px auto">
+                        <tbody>
+                            <tr>
+                                <td class="text-right negrita">Codigo:</td>
+                                <td ng-bind="codigo_reserva" style="width: 25%;padding-left: 10px;padding-right: 10px"></td>
+                                <td class="text-right negrita" style="border-left: solid;border-width:1px ">Check in: </td>
+                                <td ng-bind="fecha_fin" style="padding-left: 10px"></td>
+                            </tr>
+                            <tr>
+                                <td class="text-right negrita">Nombre:</td>
+                                <td ng-bind="nombre" style="padding-left: 10px"></td>
+                                <td class="text-right negrita" style="border-left: solid;border-width:1px ">Check out :</td>
+                                <td ng-bind="fecha_inicio" style="padding-left: 10px"></td> 
+                            </tr>
+                            <tr>
+                                <td class="text-right negrita">Apellidos: </td>
+                                <td ng-bind="apellido" style="padding-left: 10px"></td>
+                                <td class="text-right negrita" style="border-left: solid;border-width:1px;padding-left: 10px ">Fecha de reservas:</td>
+                                <td ng-bind="fecha_reserva" style="padding-left: 10px"></td>
+                            </tr>
+                            <tr>
+                                <td class="text-right negrita">Documento:</td>
+                                <td ng-bind="dni" style="padding-left: 10px"></td>
+                                <td class="text-right negrita">Total :</td>
+                                <td ng-bind="total" style="padding-left: 10px"></td>
+                            </tr>
+                            <tr>
+                                <td class="text-right negrita" style="width: 25%;padding-left: 10px;padding-right: 10px" >Tipo de pago:</td>
+                                <td ng-bind="pagotipo" style="width: 25%;padding-left: 10px"></td>
+                                <td class="text-right negrita">Total Pagado :</td>
+                                <td ng-bind="total_pagado" style="padding-left: 10px"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-bordered " style="width: 60%;margin: 30px auto 40px auto;">
+                        <thead> 
+                            <tr>
+                                <th class="text-center">Tipo de habitación</th>
+                                <th class="text-center">Cantidad</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="text-center" ng-repeat="q in grupo">
+                                <td>{{q.nombre}}</td>
+                               <td>{{q.count}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div style="width: 80%;margin:20px auto 20px 10%">
+                        <div class="form-group">
+                            <div class="col-xs-10">
+                                <label for="coment">Comentario</label>
+                                <textarea name="" id="co" cols="30" rows="5" class="form-control cos" ng-model="comentario"></textarea>
+                            </div>
+                            <div class="col-xs-2">
+                                <button class="glyphicon glyphicon-ok-sign btn btn-success" style="top:25px;margin-bottom: 5px"  ng-click="editarComentario(idcliente,comentario)"></button>
+                                <button class="glyphicon glyphicon-remove-sign btn btn-danger" style="top:25px" ng-click="eliminarComentario(idcliente,comentario)"></button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

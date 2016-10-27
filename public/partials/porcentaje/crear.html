@@ -1,0 +1,19 @@
+<div id="page-wrapper" ng-controller="porcentajeController">
+<br><br>
+<label>{{mensaje}}</label>
+   
+    <h3 class="text-center tit2">Crear Porcentaje para pago de Reservas Online</h3>
+    <div class="formularios">    
+    <form ng-submit="enviar()">
+        <div class="form-group">
+            <label for="moneda">Valor de Porcentaje</label>
+            <input type="text" class="form-control" id="porcentaje" ng-model="porcentaje" required>
+        </div>
+        
+        <div class="inputs">
+            <button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-ok" aria-hidden="true">Guardar</button><br>
+        </div>
+    </form>
+    </div>
+
+</div>

@@ -1,0 +1,41 @@
+<div id="page-wrapper" ng-controller="hotelController">
+
+    <h3 class="text-center tit2">Registro de Hoteles</h3>
+    <div class="formularios">
+        <form>
+            <div class="form-group ">
+                <label for="">Nombre del Hotel</label>
+                <input type="text" class="form-control" id="nombre" placeholder="Nombre del Hotel" ng-model="nombre">
+            </div>
+            <div class="form-group ">
+                <label for="pais">País</label>
+                <input type="text" class="form-control" id="pais" placeholder="País" ng-model="pais">
+            </div>
+            <div class="form-group ">
+                <label for="region">Región</label>
+                <input type="text" class="form-control" id="region" placeholder="Región" ng-model="region">
+            </div>
+            <div class="form-group ">
+                <label for="ciudad">Ciudad</label>
+                <input type="text" class="form-control" id="ciudad" placeholder="Ciudad" ng-model="ciudad">
+            </div>
+            <div class="form-group">
+                <label for="direccion">Dirección</label>
+                <input type="text" class="form-control" id="direccion" placeholder="Dirección del Hotel" ng-model="direccion">
+            </div>
+            <div class="form-group">
+                <label for="direccion">Correo Electrónico</label>
+                <input type="email" class="form-control" id="direccion" placeholder="Correo Electrónico" ng-model="correo">
+            </div>
+            <div class="form-group">
+                <label for="telefono">Número telefónico</label>
+                <input type="text" class="form-control" id="telefono" placeholder="Número telefónico o celular" ng-model="telefono">
+            </div>
+        
+        </form>
+
+        <div class="inputs">
+            <a href="#/Hoteles" ng-click="enviar();"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span><p>Guardar</p> </a> <br><br>
+        </div>
+    </div>
+</div>

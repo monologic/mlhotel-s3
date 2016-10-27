@@ -1,0 +1,56 @@
+<div id="page-wrapper" ng-controller="registroController" ng-init="buscarRegistro();" style="width: 90%;margin:20px auto 100px auto">
+<br><br><br>
+	<h1 class="tit2">Detalles de Registro</h1>
+
+	<div class="row" style="color:black;margin-top:30px;">
+		<div class="col-sm-12 col-md-6" style="display: inline-block;">
+			<div>Tipo de habitación : &nbsp; {{ registro.habitacion.habtipo.nombre }}</div><br>
+			<div>Numero habitación : &nbsp; {{ registro.habitacion.numero }}</div>
+			
+		</div>
+	</div>
+
+	<div class="row" style="color: black;margin-top: 30px">
+			<div class="col-md-6">Fecha Entrada : 
+				<p style="margin-left: 30px">{{ registro.fechaentrada }}</p>
+			</div>
+			<div class="col-md-6">Fecha Salida : 
+				<p style="margin-left: 30px">{{ registro.fechasalida }}</p>
+			</div>
+			<div class="col-sm-12 col-md-4 infos">
+			<p>Código de Reserva :</p>
+			<p style="margin-left: 35px">{{ registro.codigo_reserva }}</p>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-12 col-md-6" style="color: black">
+			<h3>Huéspedes</h3>
+			<table class="table table-condensed">
+				<thead>
+					<td>#</td>
+					<td>DNI</td>
+					<td>Nombre</td>
+					<td>Celular</td>
+					<th>Procedencia</th>
+					<th>Destino</th>
+					
+				</thead>
+				<tbody>
+					<tr ng-repeat="huesped in registro.regclientes">
+						<td>{{$index+1}}</td>
+						<td>{{huesped.cliente.dni}} </td>
+						<td>{{huesped.cliente.nombres}} {{huesped.cliente.apellidos}}</td>
+						<td>{{huesped.cliente.celular}}</td>
+						<td>{{huesped.procedencia}}</td>
+						<td>{{huesped.destino}}</td>
+					</tr>
+				</tbody>
+				
+			</table>
+
+			<div style="margin-top: 40px">Precio : S/ {{ registro.habitacion.habtipo.precio }}</div>
+			<br><br>
+			<a href="" class="btn btn-primary" ng-click="finalizar(registro.id);">Check Out</a>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,35 @@
+<div id="page-wrapper" ng-controller="usuarioController" ng-init="getUsuarioActual();">
+    <br><br><br>
+    <h3 class="text-center tit2">Editar Información de Usuario</h3>
+    <br><br><br>
+    
+    <div class="formularios">
+        <form ng-submit="actualizarUsuario(idUsuario)">
+            <h3>Editar Nombre de Usuario</h3>
+            <div class="form-group ">
+                <label for="usuario">Usuario</label>
+                <input type="text" class="form-control" id="usuario" ng-model="usuario" placeholder="Escriba su usuario al sistema" required>
+            </div>
+            <div class="inputs">
+                <button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-ok" aria-hidden="true">Guardar</button><br>
+            </div>
+        </form>
+    </div>
+    <div class="formularios">
+        <form ng-submit="actualizarPassword(idUsuario)">
+        <h3>Editar Contraseña</h3>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" id="password" ng-model="password" placeholder="Ingrese una Contraseña" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Escriba nuevamente el Password</label>
+                <input type="password" class="form-control" id="password2" ng-model="password2" placeholder="Ingrese otra vez su contraseña" required>
+            </div>
+            <div class="inputs">
+                <button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-ok" aria-hidden="true">Guardar</button><br>
+            </div>
+        </form>
+    </div>
+    
+</div>

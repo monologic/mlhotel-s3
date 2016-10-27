@@ -1,0 +1,36 @@
+<div id="page-wrapper" ng-controller="usuarioController" ng-init="getUsuarios();">
+    <br><br><br>
+    <h3 class="tit2">Usuarios</h3>
+    <br><br>
+    
+    <table class="table table-hover">
+    	<thead>
+            <tr>
+                <td colspan="6">
+                    <a href="#//Usuarios/crear" class="btn btn-primary hb"><span class="glyphicon glyphicon-plus" aria-hidden="true" ></span>  Nueva Usuario</a>
+                </td>
+            </tr>
+    		<tr>
+    			<th>#</th>
+    			<th>Usuario</th>
+                <th>Nombre</th>
+                <th>Tipo de Usuario</th>
+                <th>Cargo en el Hotel</th>
+                <th>Estado</th>
+                
+    		</tr>
+    	</thead>
+    	<tbody>
+    		<tr ng-repeat="x in usuarios">
+			    <td>{{$index+1}}</td>
+                <td>{{x.usuario}}</td>
+                <td>{{x.nombres}} {{x.apellidos}}</td>
+                <td>{{x.usuariotipo}}</td>
+                <td>{{x.tipoempleado}}</td>
+                <td ng-if="x.activo == 1">Activo <button ng-click="activarDesactivar(x.id);" class="btn btn-success"> <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span></button></td>
+                <td ng-if="x.activo == 0">Inactivo <button ng-click="activarDesactivar(x.id);" class="btn btn-success"> <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span></button></td>
+                
+			  </tr>
+    	</tbody>
+  	</table>
+</div>

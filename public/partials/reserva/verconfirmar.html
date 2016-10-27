@@ -1,0 +1,222 @@
+<div id="page-wrapper" ng-controller="reservaController" ng-init="getReservasPorConfirmar();" style="width: 80%;margin: 20px auto 40px auto;">
+    <br><br><br>
+    <h3 class="tit2">Reservas Por Confirmar</h3>
+    <br><br>
+    <div id="nh" style="font-weight: bold;font-size: 4rem;text-align: center;margin-top: 100px;display: none">NO HAY RESERVAS POR CONFIRMAR</div>
+    <div style="width: 310px;float: right" id="bs">
+         <input type="text" class="form-control" ng-model="buscar" style="width: 320px"><i class="glyphicon glyphicon-search" style="top:-25px;float: right;color: black"></i>
+    </div>
+    <div id="Reservas">
+        <div ng-repeat="y in reservas | filter:buscar" class="row reservaDiv">
+            <p>
+              <button class="btn reserva-item" type="button" data-toggle="collapse" data-target="#{{y.id}}" aria-expanded="false" aria-controls="collapseExample">
+                <div class="col-md-2">
+                    <i class="glyphicon glyphicon-qrcode"></i>&nbsp; {{ y.codigo_reserva }} 
+                </div>
+                <div class="col-md-3">
+                    <i class="glyphicon glyphicon-user"></i>&nbsp; {{ y.cliente.nombres }} {{ y.cliente.apellidos }}
+                </div>
+                <div class="col-md-3">
+                    <i class="glyphicon glyphicon-calendar"> </i>&nbsp; {{ y.soloFecha | date:'d MMM yyyy'}}
+                </div>
+                <div class="col-md-2" style="text-align: right">
+                    {{ y.pagotipo.pagotipo }}
+                </div>
+              </button>
+            </p>
+
+                <div class="collapse" id="{{y.id}}" style="padding: 20px;border-width:0.1px;border:solid;border-radius: 5px;margin-bottom:10px">
+                  <div class="card card-block row" style="color:black">
+                    <div class="col-md-4">
+                        <p>Fecha de Entrada:</p>
+                        <p style="margin-left: 30px"> {{ y.soloFecha | date:'d MMM yyyy'}} a las {{ y.soloHora}} horas.</p>
+                        <p>Fecha de Salida: </p>
+                        <p style="margin-left: 30px">{{ y.soloFecha2 | date:'d MMM yyyy'}} a las {{ y.soloHora2 }} horas.</p>
+                    </div >    
+                    
+                    <div class="col-md-4">
+                        <table class="table table-bordered" style="margin-bottom: 20px">
+                            <thead>
+                                <tr>
+                                    <th colspan="2" class="text-center">Habitaciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="z in y.habtiposcount">
+                                    <td>{{ z.nombre }}</td>
+                                    <td>{{ z.count }}</td>
+                                </tr>
+                                <tr>
+                                    <td align="right">Total</td>
+                                    <td>S/ {{ y.total }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                <div class="col-sm-4" style="bottom: 0;">
+                    <p><a href="" ng-click="ReservaAConfirmar(y.id,y.total,y.fraccion_importe)" class="btn btn-success" data-toggle="modal" data-target="#confirmar" style="margin-bottom: 10px;min-width: 150px">Confirmar Reserva</a></p>
+                    <p><a href="" ng-click="cancelar(y.id)" class="btn btn-danger" style="margin-bottom: 10px;min-width: 150px">Cancelar Reserva</a></p>
+                    <p><a href="" ng-click="dataEditar(y)" class="btn btn-warning" data-toggle="modal" data-target="#editar" style="margin-bottom: 10px;min-width: 150px">Editar Reserva</a></p>
+                </div>
+              </div>
+            </div>
+            <div class="modal fade" id="editar" tabindex="-1" role="dialog" aria-labelledby="editarModal">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h2 class="modal-title" id="myModalLabel">Editar Reserva</h2>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="form-group ">
+                                    <label for="">Nombre de Cliente: </label>
+                                    <label for="">{{nom}}</label>
+                                </div>
+                                <div class="form-group ">
+                                    <label for="">Dni: </label>
+                                    <label for="">{{dni}}</label>
+                                </div>
+                                <div class="form-group ">
+                                    <label for="">Reserva por: </label>
+                                    <label for="">{{pagotipo}}</label>
+                                </div>
+                                <div class="col-md-12">
+                                    <table class="table">
+                                        Habitaciones: 
+                                        <tbody>
+                                            <tr ng-repeat="z in habtiposcount">
+                                                <td>{{ z.nombre }}</td>
+                                                <td>{{ z.count }}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <br>
+                                <div class="form-group ">
+                                    <label for="">Fecha de Inicio</label>
+                                    <input type="date" class="form-control" id="fechaini" placeholder="fecha inicio" ng-model="fechaini">
+                                     <div class="cl" style="margin-left: 90px;"><img class="cld" src="plugins/css/imgc.png" alt=""></div>
+                                </div>
+                                <div class="form-group ">
+                                    <label for="pais">Fecha Fin</label>
+                                    <input type="date" class="form-control" id="fechafin" placeholder="fecha fin" ng-model="fechafin">
+                                     <div class="cl" style="margin-left: 90px;"><img class="cld" src="plugins/css/imgc.png" alt=""></div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <a href="" class="btn btn-primary" ng-click="editar();">Guardar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="confirmar" tabindex="-1" role="dialog" aria-labelledby="editarModal">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h2 class="modal-title" id="myModalLabel">Confirmar Reserva</h2>
+                        </div>
+                        <form ng-submit="confirmar()" style="width: 70%">
+                        <div class="modal-body">
+                            <table class="table table-bordered marginez">
+                                <tbody>
+                                    <tr>
+                                        <td>Total reserva</td>
+                                        <td ng-bind="totalver"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Depósito reserva</td>
+                                        <td ng-bind="verpagado"></td>
+                                    </tr>
+                                </tbody>
+                                
+                            </table>
+                            <br>
+                                <div class="form-group ">
+                                    <label for="">Pago recibido: </label>
+                                    <input type="text" class="form-control" id="total_pagado" ng-model="total_pagado" placeholder="Monto recibido en depósito" required>
+                                </div>
+                                <div class=" form-group">
+                                    <label for="coment">Comentario (opcional)</label>
+                                    <textarea name="" id="comentarioD" cols="30" rows="5" class="form-control cos" ng-model="comentarios"></textarea>
+                                </div>
+                                
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Guardar</button>
+                        </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id='imprimiendo' class=" imp">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th colspan="7" class="text-center">Reservas por confirmar</th>
+                </tr>
+                <tr>
+                    <th>Código</th>
+                    <th>Nombres y Apellidos</th>
+                    <th>Check In</th>
+                    <th>Check Out</th>
+                    <th>Habitaciones</th>
+                    <th>Saldo</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr  ng-repeat="kr in reservas">
+                    <td>{{ kr.codigo_reserva }}</td>
+                    <td>{{ kr.cliente.nombres }} {{ kr.cliente.apellidos }}</td>
+                    <td>{{ kr.soloFecha | date:'d MMM yyyy' }} | {{ kr.soloHora }}</td>
+                    <td>{{ kr.soloFecha2 | date:'d MMM yyyy' }} | {{ kr.soloHora2 }}</td>
+                    <td><p ng-repeat="x in kr.habtiposcount"> - {{ x.count }} {{ x.nombre }}(s) </p></td>
+                    <td>S/ {{ kr.total}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <button class="btn btn-primary" ng-click="printDiv('imprimiendo');"><span class="glyphicon glyphicon-print" aria-hidden="true" style="right: 0"></span> Imprimir</button>
+
+</div>  
+<script>
+$('#myCollapsible').collapse({
+  toggle: false
+})
+</script>
+<style type="text/css">
+@media screen {
+    #printSection {
+        display: none;
+    }
+}
+
+@media print {
+    body * {
+        visibility:hidden;
+    }
+    #printSection, #printSection * {
+        visibility:visible;
+
+    }
+    .reservaDiv {
+        margin-bottom: 10px;
+    }
+    .imp{
+        display: block;
+    }
+    #printSection {
+        position:absolute;
+        left:0;
+        top:0;
+        width: 100%;
+    }
+}
+
+</style>

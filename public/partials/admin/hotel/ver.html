@@ -1,0 +1,388 @@
+<div id="page-wrapper" ng-controller="hotelController" ng-init="getHoteles();iconografia();">
+    <br><br><br>
+
+    <h3 class="tit2">Hotel</h3>
+    <pre id="alertCambio" class="bg-success">Hotel creado exitosamente. <button type="button" onclick="$('#alertCambio').css('display','none')" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button></pre>
+    <div class="inform row">
+        <p ng-if='hoteles.length == 0' id="alertinfo" class=" hotel col-md-8">Actualmente no hay un hotel resgristrado. Si selecciona el botton de su derecha podra registrar un nuevo Hotel <button type="button" onclick="$('#alertinfo').css('display','none')" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button></p>
+
+        <a ng-if='hoteles.length == 0' href="#/Hoteles/crear" class="btn btn-primary hb col-md-4"><span class="glyphicon glyphicon-plus" aria-hidden="true" ></span>  Nuevo Hotel</a>
+    </div>
+    
+
+    <table class="table table-hover">
+    	<thead>
+    		<tr>
+    			<th>#</th>
+    			<th>Nombre del Hotel</th>
+                <th>Acción</th>
+    			<th>Administrador</th>
+                <th>Acción</th>
+                
+    		</tr>
+    	</thead>
+    	<tbody>
+    		<tr ng-repeat="x in hoteles">
+			    <td>{{$index+1}}</td>
+                <td>{{x.nombre}}</td>
+                <td>
+                    <a href="" ng-click="dataEditar(x);" data-toggle="modal" data-target="#editar" class="btn btn-success"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
+                </td>
+                <td>{{x.administrador.nombres}} {{x.administrador.apellidos}}</td>
+                <td ng-if="x.administrador != null">
+                    <a href="" ng-click="dataEditarAdmin(x.administrador, x.id);" data-toggle="modal" data-target="#editarAdministrador" class="btn btn-success btn-sm">Editar</a>
+                    <a href="" data-toggle="modal" data-target="#EditarAdmin" class="btn btn-warning btn-sm">Nuevo Admin</a>
+                </td>
+                <td ng-if="x.administrador == null">
+                    <button class="btn btn-primary" data-toggle="modal" ng-click="dataCrearAdmin(x.id);" data-target="#myModal"><a href=""></a>Asignar Administrador</button>
+                </td>
+			</tr>
+    	</tbody>
+  	</table>
+    
+   
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h2 class="modal-title" id="myModalLabel">Administrador</h2>
+                </div>
+                <div class="modal-body">
+                    <form id="myForm">
+                        <div class="form-group">Información de Usuario</div>
+                        <div class="form-group ">
+                            <label for="usuario">Usuario</label>
+                            <input type="text" class="form-control" id="usuario" ng-model="usuario" placeholder="Escriba su usuario al sistema" required>
+                        </div>
+                        <div id="divp" class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" class="form-control" id="password" ng-model="password" placeholder="Ingrese una Contraseña" required>
+                        </div>
+                        <div id="divp2" class="form-group">
+                            <label for="password">Reescriba el Password</label>
+                            <input type="password" class="form-control" id="password2" ng-model="password2" placeholder="Escriba nuevamente la Contraseña" required onblur="blurFunction()">
+                        </div>
+                        <br>
+                        <div class="form-group">Información Personal</div>
+                        <div class="form-group ">
+                            <label for="exampleInputEmail1">Nombres</label>
+                            <input type="text" class="form-control" id="nombre" placeholder="Nombres" ng-model="nombre" required>
+                        </div>
+                        <div class="form-group ">
+                            <label for="exampleInputEmail1">Apellidos</label>
+                            <input type="text" class="form-control" id="apellido" placeholder="Apellidos" ng-model="apellido" required>
+                        </div>
+                        <div class="radio">Sexo:
+                            <label>
+                                <input type="radio" name="sexo" id="sexo" value="Masculino" required>
+                                Masculino
+                            </label>
+                            <label>
+                                <input type="radio" name="sexo" id="sexo" value="Femenino" required>
+                                Femenino
+                            </label>
+
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Fecha de Nacimiento</label>
+                            <input type="date" class="form-control" id="nacimiento" ng-model="nacimiento" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">DNI</label>
+                            <input type="text" class="form-control" id="dni" placeholder="Numero de DNI" ng-model="dni" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Dirección</label>
+                            <input type="text" class="form-control" id="direccion" placeholder="Dirección" ng-model="direccion" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Número telefónico</label>
+                            <input type="text" class="form-control" id="celular" placeholder="Número telefónico o celular" ng-model="celular" required>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <a href="" class="btn btn-primary" ng-click="crearAdminHotel();" data-dismiss="modal">Guardar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="EditarAdmin" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h2 class="modal-title" id="myModalLabel">Administrador</h2>
+                </div>
+                <div class="modal-body">
+                    <form id="myForm2">
+                        <div class="form-group">Información de Usuario</div>
+                        <div class="form-group ">
+                            <label for="usuario">Usuario</label>
+                            <input type="text" class="form-control" id="usuario" ng-model="usuario" placeholder="Escriba su usuario al sistema" required>
+                        </div>
+                        <div id="divp" class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" class="form-control" id="password" ng-model="password" placeholder="Ingrese una Contraseña" required>
+                        </div>
+                        <div id="divp2" class="form-group">
+                            <label for="password">Reescriba el Password</label>
+                            <input type="password" class="form-control" id="password2" ng-model="password2" placeholder="Escriba nuevamente la Contraseña" required onblur="blurFunction()">
+                        </div>
+                        <br>
+                        <div class="form-group">Información Personal</div>
+                        <div class="form-group ">
+                            <label for="exampleInputEmail1">Nombres</label>
+                            <input type="text" class="form-control" id="nombre" placeholder="Nombres" ng-model="nombre" required>
+                        </div>
+                        <div class="form-group ">
+                            <label for="exampleInputEmail1">Apellidos</label>
+                            <input type="text" class="form-control" id="apellido" placeholder="Apellidos" ng-model="apellido" required>
+                        </div>
+                        <div class="radio">Sexo:
+                            <label>
+                                <input type="radio" name="sexo" id="sexo" value="Masculino" required>
+                                Masculino
+                            </label>
+                            <label>
+                                <input type="radio" name="sexo" id="sexo" value="Femenino" required>
+                                Femenino
+                            </label>
+
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Fecha de Nacimiento</label>
+                            <input type="date" class="form-control" id="nacimiento" ng-model="nacimiento" required>
+                            <div class="cl"><img class="cld" style="margin-left: 230px" src="plugins/css/imgc.png" alt=""></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">DNI</label>
+                            <input type="text" class="form-control" id="dni" placeholder="Numero de DNI" ng-model="dni" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Dirección</label>
+                            <input type="text" class="form-control" id="direccion" placeholder="Dirección" ng-model="direccion" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Número telefónico</label>
+                            <input type="text" class="form-control" id="celular" placeholder="Número telefónico o celular" ng-model="celular" required>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <a href="" class="btn btn-primary" ng-click="guardarAdminHotel();" data-dismiss="modal">Guardar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="editar" tabindex="-1" role="dialog" aria-labelledby="editarModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h2 class="modal-title" id="myModalLabel">Editar Hotel</h2>
+                </div>
+                <div class="modal-body">
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a data-target="#infoH" data-toggle="tab" style="color: black">Hotel</a></li>
+                        <li><a data-target="#social" data-toggle="tab" style="color:black">Redes Sociales</a></li>
+                        <li><a data-target="#servicios" data-toggle="tab" style="color:black">Servicios Generales</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="infoH">
+                            <div class="formularios">
+                                <form>
+                                    <div class="form-group ">
+                                        <label for="">Nombre del Hotel</label>
+                                        <input type="text" class="form-control" id="nomHotel" placeholder="Nombres" ng-model="nomHotel">
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="pais">País</label>
+                                        <input type="text" class="form-control" id="paisHotel" placeholder="País" ng-model="paisHotel">
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="region">Región</label>
+                                        <input type="text" class="form-control" id="regHotel" placeholder="Región" ng-model="regHotel">
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="ciudad">Ciudad</label>
+                                        <input type="text" class="form-control" id="ciuHotel" placeholder="Ciudad" ng-model="ciuHotel">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="dirHotel">Direccion</label>
+                                        <input type="text" class="form-control" id="dirHotel" placeholder="Direccion donde se ubica el Hotel" ng-model="dirHotel">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Correo Electonico</label>
+                                        <input type="email" class="form-control" id="correo" placeholder="Indique el nuevo correo" ng-model="correo">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="fonoHotel">Numero telefonico</label>
+                                        <input type="text" class="form-control" id="fonoHotel" placeholder="Numero telefonico o celular" ng-model="fonoHotel">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="social" style="color: black">
+                            <br>
+                            <p>Seleciones las opciones.</p>
+                            <br>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div ng-repeat="s in social" on-finish-render="ngRepeatFinished">
+                                        <input type="checkbox"  id="{{s.id}}c"  name="social" ng-model="sociales" ng-change="verI(s.id)">
+                                        <i class="fa {{s.icono}} socialB" style="background-color: {{s.color}}"> </i><i class="nomsocial"> {{s.nombre}} </i>
+                                        <input type="text" id="{{s.id}}face" class="inpkira">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="servicios" style="color: black">
+                            <br>
+                            <p>Seleciones las opciones.</p>
+                            <br>
+                            <div class="row reds" >
+                                <div>
+                                   <label class="checkbox-inline col-md-3 col-xs-4" ng-repeat="servicios in iconoshotel" style="margin-left:0px; margin-bottom: 60px;padding-top: 0">
+                                    <div ng-if="servicios.estado=='true'">
+                                        <div  class="col-xs-12" style="text-align:center">
+                                            <input type="checkbox" id="{{servicios.id}}i" value="option1" checked="" style="margin-top: 20%;display: none">
+                                            <label for=""></label>
+                                            <i class="{{servicios.icono}}" style="text-align: center;font-size:3.5rem;z-index: 10px;"></i>
+                                            <div style="font-size: 1.4rem;text-align: center">{{servicios.nombre}}</div>
+                                        </div>
+                                    </div>
+                                    <div ng-if="servicios.estado=='false'">
+                                        <div style="text-align:center">
+                                            <input type="checkbox" id="{{servicios.id}}i" value="option1" style="margin-top: 20%;display: none">
+                                            <label for=""></label>
+                                            <i class="{{servicios.icono}}" style="text-align: center;font-size:3.5rem;"></i>
+                                            <div style="font-size: 1.4rem;text-align: center">{{servicios.nombre}}</div>
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <a href="" class="btn btn-primary" ng-click="editarHotel();" data-dismiss="modal">Guardar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="editarAdministrador" tabindex="-1" role="dialog" aria-labelledby="editarModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h2 class="modal-title" id="myModalLabel">Editar Administrador</h2>
+                </div>
+                <div class="modal-body">
+                    <ul class="nav nav-tabs" id="myTab">
+                        <li class="active"><a data-target="#home" data-toggle="tab" style="color: black">Usuario</a></li>
+                        <li><a data-target="#profile" data-toggle="tab" style="color:black">Información</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="home">
+                            <div class="formularios">
+                                <form ng-submit="actualizarUsuario(idUsuario)">
+                                    <h3>Editar Nombre de Usuario</h3>
+                                    <div class="form-group ">
+                                        <label for="usuario">Usuario</label>
+                                        <input type="text" class="form-control" id="usuario" ng-model="usuario" placeholder="Escriba su usuario al sistema" required>
+                                    </div>
+                                    <div class="inputs">
+                                        <button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-ok" aria-hidden="true">Guardar</button><br>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="formularios">
+                                <form ng-submit="actualizarPassword(idUsuario)">
+                                <h3>Editar Contraseña</h3>
+                                    <div class="form-group">
+                                        <label for="password">Password</label>
+                                        <input type="password" class="form-control" id="password" ng-model="password" placeholder="Ingrese una Contraseña" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="password">Escriba nuevamente el Password</label>
+                                        <input type="password" class="form-control" id="password2" ng-model="password2" placeholder="Ingrese otra vez su contraseña" required>
+                                    </div>
+                                    <div class="inputs">
+                                        <button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-ok" aria-hidden="true">Guardar</button><br>
+                                    </div>
+                                </form>
+                            </div>        
+                        </div>
+                        <div class="tab-pane" id="profile">
+                            <form ng-submit="actualizarAdministrador()" id="myForm5">
+                                <div class="form-group ">
+                                    <label for="exampleInputEmail1">Nombres</label>
+                                    <input type="text" class="form-control" id="nombre" placeholder="Nombres" ng-model="nombre" required>
+                                </div>
+                                <div class="form-group ">
+                                    <label for="exampleInputEmail1">Apellidos</label>
+                                    <input type="text" class="form-control" id="apellido" placeholder="Apellidos" ng-model="apellido" required>
+                                </div>
+                                <div class="radio">Sexo:
+                                    <label>
+                                        <input type="radio" name="sexo" id="sexo" value="Masculino" required>
+                                        Masculino
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="sexo" id="sexo" value="Femenino" required>
+                                        Femenino
+                                    </label>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Fecha de Nacimiento</label>
+                                    <input type="date" class="form-control" id="nacimiento" ng-model="nacimiento" required>
+                                    <div class="cl"><img class="cld" style="margin-left: 230px" src="plugins/css/imgc.png" alt=""></div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">DNI</label>
+                                    <input type="text" class="form-control" id="dni" placeholder="Numero de DNI" ng-model="dni" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Dirección</label>
+                                    <input type="text" class="form-control" id="direccion" placeholder="Dirección" ng-model="direccion" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Número telefónico</label>
+                                    <input type="text" class="form-control" id="celular" placeholder="Número telefónico o celular" ng-model="celular" required>
+                                </div>
+                                <div class="inputs">
+                                    <button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-ok" aria-hidden="true">Guardar</button><br>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function blurFunction() {
+            if($('#password').val() == $('#password2').val()){
+                $('#divp').removeClass( "has-error" ).addClass( "has-success" );
+                $('#divp2').removeClass( "has-error" ).addClass( "has-success" );
+            }
+            else{
+                swal("Alerta!", "Las contraseñas no coinciden!", "warning")
+                $('#divp').removeClass( "has-success" ).addClass( "has-error" );
+                $('#divp2').removeClass( "has-success" ).addClass( "has-error" );
+            }
+        }
+    </script>
+</div>

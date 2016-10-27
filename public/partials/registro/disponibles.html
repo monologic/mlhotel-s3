@@ -1,0 +1,64 @@
+<div id="page-wrapper" ng-controller="registroController" ng-init="ponerFecha();" style="width: 80%;margin:20px auto 100px auto">
+    <br><br><br>
+    <h3 class="tit2">Consulta de Disponibilidad</h3>
+    <br><br>
+    <div class="formularios">
+        <table>
+            <form>
+                <tr>
+                    <td style="min-width:200px;padding:0px 10px 0px 10px "><label for="fechaini" >Fecha Inicio</label></td>
+                    <td style="min-width:200px;padding:0px 10px 0px 10px "><label for="fechafin">Fecha Fin</label></td>
+                    
+                </tr>
+                <tr>
+                    <td style="min-width:200px;padding:0px 10px 0px 10px " >
+                        <div class="form-group ">
+                            <input type="date" class="form-control" id="fechaini" ng-model="fechaini">
+                            <div class="cl"><img class="cld" src="plugins/css/imgc.png" alt=""></div>
+                        </div>
+                    </td>
+                    <td style="min-width:200px;padding:0px 10px 0px 10px " >
+                        <div class="form-group">
+                            <input type="date" class="form-control" id="fechafin" ng-model="fechafin">
+                            <div class="cl"><img class="cld" src="plugins/css/imgc.png" alt=""></div>
+                        </div>
+                    </td>
+                    <td>
+                        <a href="" class="btn btn-primary" ng-click="buscar();" style="margin-top:-20px">Buscar</a>
+                    </td>
+                </tr>
+            </form>
+        </table>
+    </div>
+    <br>
+    <div>
+        <a href="" class="btn btn-success" id="guardarChecks" ng-click="guardarRegistros(); "style="display:none;position: fixed;bottom:50px;right: 50px">Guardar Cambios</a>
+    </div>
+    <div ng-repeat="habtipo in tipoPerHabs">
+        <h3 style="color:black">{{habtipo.nombre}}</h3>
+        <div class="row">
+            <div class="col-md-6"> <div style="width: 60%;left: 0;height: 25px;text-align: center; border-radius: 5px 5px 0px 0px; background-color:#1E8BC3;color:black;">Reservadas: {{habtipo.habtiporeservascount}}</div></div> 
+            <div class="col-md-6"> <div style="width: 60%;left: 0;height: 25px;text-align: center; border-radius: 5px 5px 0px 0px; background-color:#F9690E;color:black;">disponibles: {{habtipo.habitacionescount - habtipo.habtiporeservascount}}</div></div>  
+        </div>
+        <div class="row">
+            <table class="table table-hover col-md-12" style="margin: -10px 0px 30px 10px; box-shadow: 5px 5px 5px #888888;">
+                <thead>
+                    <tr>
+                        <th>Número Habitación</th>
+                        <th>Estado</th>
+                        <th>Tipo de Habitación</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="p in habtipo.habitaciones | orderBy:'numero'">
+                        <td>{{p.numero}}</td>
+                        <td class="text-success" ng-if="p.estado.nombre == 'Disponible'">{{p.estado.nombre}}</td>
+                        <td class="text-danger" ng-if="p.estado.nombre == 'Ocupado'">{{p.estado.nombre}}</td>
+                        <td>{{p.habtipo.nombre}}</td>
+                      </tr>
+                </tbody>
+            </table>
+        </div>    
+    </div>
+    
+

@@ -1,0 +1,66 @@
+<div id="page-wrapper" ng-controller="habitacionController" ng-init="getHabitacionesDetallado();ponerFecha();">
+    <br><br><br>
+    <div id="Habitaciones">
+        <h3 class="tit2">Estado actual de habitaciones</h3>
+        <br><br>
+        <table class="table table-hover">
+        	<thead>
+        		<tr>
+        			<th>Número</th>
+        			<th>Estado</th>
+                    <th>Tipo de Habitación</th>
+                    <th>Check out</th>
+                    <th>Acción</th>
+        		</tr>
+        	</thead>
+        	<tbody>
+        		<tr ng-repeat="x in habitaciones">
+                    <td>{{x.numero}}</td>
+                    <td>{{x.estado.nombre}}</td>
+                    <td>{{x.habtipo.nombre }}</td>
+                    <td ng-if="x.registro.hoy == 1 && x.estado.nombre == 'Ocupado'"><span class="label label-info" style="font-size: 1.5rem">{{x.registro.fechasalida}}</span></td>
+                    <td ng-if="x.registro.hoy == 0 && x.estado.nombre == 'Ocupado'">{{x.registro.fechasalida}}</td>
+                    <td ng-if="(x.registro).length == 0"></td>
+                    <td ng-if="x.outdated == 1">
+                        <a class="btn btn-danger" ng-click="getRegistroHab(x.id)">Check-out</a>
+                    </td>
+                    <td ng-if="(x.registro.regclientes).length > 0 && x.estado.nombre == 'Ocupado'">
+                        <a href="admin#/terminarRegistro/{{x.registro.id}}" class="btn btn-success">Ver</a>
+                    </td>
+                    <td ng-if="(x.registro.regclientes).length == 0 && x.estado.nombre == 'Ocupado'">
+                        <a href="admin#/detalleHabitacion/{{x.registro.id}}" class="btn btn-warning">Ver (Completar Datos)</a>
+                    </td>
+                    
+    			  </tr>
+        	</tbody>
+      	</table>
+    </div>
+
+    <button class="btn btn-primary" ng-click="printDiv('Habitaciones');"><span class="glyphicon glyphicon-print" aria-hidden="true"></span> Imprimir</button>
+
+</div>
+
+<style type="text/css">
+
+@media screen {
+    #printSection {
+        display: none;
+    }
+}
+
+@media print {
+    body * {
+        visibility:hidden;
+    }
+    #printSection, #printSection * {
+        visibility:visible;
+    }
+    #printSection {
+        position:absolute;
+        left:0;
+        top:0;
+        width: 100%;
+    }
+}
+
+</style>

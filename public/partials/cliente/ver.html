@@ -1,0 +1,95 @@
+<div id="page-wrapper" ng-controller="clienteController" ng-init="getClientes();">
+    <br><br><br>
+    <h3 class="tit2">Clientes</h3>
+    <br><br>
+    
+   <div style="width: 300px;margin-left: 100px">
+       <input type="text" class="form-control" ng-model="buscar" style="width: 320px"><i class="glyphicon glyphicon-search" style="top:-25px;float: right;color: black"></i>
+   </div>
+   
+    <br>
+    <div id="resultado"></div>
+    <br>
+    <table class="table table-hover">
+    	<thead>
+    		<tr>
+    			<th>#</th>
+                <th>Nombres y Apellidos</th>
+                <th>DNI</th>
+                <th>Email</th>
+                <th></th>
+                
+    		</tr>
+    	</thead>
+    	<tbody>
+               <tr ng-repeat="x in cliente | filter:buscar">
+                    <td>{{$index+1}}</td>
+                    <td>{{x.nombres}} {{x.apellidos}}</td>
+                    <td>{{x.dni}}</td>
+                    <td>{{x.email}}</td>
+                    <td><a  class="btn btn-primary" href="" ng-click="verCliente(x);" data-toggle="modal" data-target="#vercliente"><i class="glyphicon glyphicon-plus"></i></a></td>
+              </tr> 
+    	</tbody>
+  	</table>
+    <div class="modal fade" id="vercliente" tabindex="-1" role="dialog" aria-labelledby="vercliente">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Información de cliente</h2>
+                </div>
+                <div class="modal-body row" style="color:black">
+
+                    <table class="" style="width: 80%;margin: 10px auto 10px auto">
+                        <tbody>
+                            <tr>
+                                <td class="text-right" width="200">Nombre :&nbsp;</td>
+                                <td ng-bind="nombre"></td>
+                            </tr>
+                            <tr>
+                                <td class="text-right">Apellidos :&nbsp;</td>
+                                <td ng-bind="apellido"></td>
+                            </tr>
+                            <tr>
+                                <td class="text-right">Sexo :&nbsp;</td>
+                                <td ng-bind="sexo"></td>
+                            </tr>
+                            <tr>
+                                <td class="text-right">Fecha de nacimiento :&nbsp;</td>
+                                <td ng-bind="nacimiento"></td>
+                            </tr>
+                            <tr>
+                                <td class="text-right">Docmuento de Identidad :&nbsp;</td>
+                                <td ng-bind="dni"></td>
+                            </tr>
+                            <tr>
+                                <td class="text-right">Ocupación :&nbsp;</td>
+                                <td ng-bind="prof_ocup"></td>
+                            </tr>
+                            <tr>
+                                <td class="text-right">Teléfono :&nbsp;</td>
+                                <td ng-bind="celular"></td>
+                            </tr>
+                            <tr>
+                                <td class="text-right">Ciudad :&nbsp;</td>
+                                <td ng-bind="ciudad"></td>
+                            </tr>
+                            <tr>
+                                <td class="text-right">Pais :&nbsp;</td>
+                                <td ng-bind="pais"></td>
+                            </tr>
+                            <tr>
+                                <td class="text-right">Email :&nbsp;</td>
+                                <td ng-bind="correo"></td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                    
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

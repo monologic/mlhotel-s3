@@ -1,0 +1,52 @@
+<div class="formularios">
+
+    <form method="POST" action="admin/AddSubHab" accept-charset="UTF-8" enctype="multipart/form-data">
+    <br><br>
+        <h2 class="tit2">Agregar Tipo de Habitacion</h2>
+        <br><br>
+        <div class="form-group">
+            <label for="tipo">Nombre</label>
+            <input class="form-control"  required="required" name="nombre" type="text" id="nombre" required>
+        </div>
+
+        <div class="form-group">
+            <label for="foto">Seleccione imagen</label>
+            <input name="imagen" type="file" id="imagen" required>
+        </div>
+
+        <div class="form-group">
+            <label for="descripcion">Descripcion</label>
+            <textarea class="form-control" required="required" name="descripcion" cols="50" rows="6" id="edit" required></textarea>
+        </div>
+        <div class="form-group">
+            <label for="tipo">Capacidad</label>
+            <input class="form-control"  required="required" name="nropersonas" type="text" id="pnropersonas" required>
+        </div>
+         <div class="form-group">
+            <label for="tipo">Precio</label>
+            <input class="form-control"  required="required" name="precio" type="text" id="precio" required>
+        </div>
+        
+
+        <div class="form-group">
+            
+            <input class="btn btn-primary" type="submit" value="Guardar">
+        </div>
+
+       
+    </form>  
+
+</div>
+
+ <script>
+    $(function(){
+      $('#edit').froalaEditor({
+        enter: $.FroalaEditor.ENTER_P,
+        height: 350,
+         colorsText: ['#61BD6D', '#1ABC9C', '#54ACD2', 'REMOVE']
+      })
+    });
+  </script>
+
+
+        

@@ -1,0 +1,26 @@
+<div id="page-wrapper" ng-controller="monedaController">
+<br><br>
+<label>{{mensaje}}</label>
+   
+    <h3 class="text-center tit2">Crear Moneda</h3>
+    <div class="formularios">    
+    <form ng-submit="enviar()">
+        <div class="form-group">
+            <label for="moneda">Nombre de Moneda</label>
+            <input type="text" class="form-control" id="moneda" ng-model="moneda" required>
+        </div>
+        <div class="form-group">
+            <label for="siglas">Siglas</label>
+            <input type="text" class="form-control" id="siglas" ng-model="siglas" required>
+        </div>
+         <div class="form-group">
+            <label for="tipocambio">Tipo de Cambio</label>
+            <input type="text" pattern="^\d{1,3}(?:,\s?\d{3})*(?:\.\d*)?$" class="form-control" id="tipocambio" placeholder="formato: 3.000" ng-model="tipocambio" required>
+        </div>
+        <div class="inputs">
+            <button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-ok" aria-hidden="true">Guardar</button><br>
+        </div>
+    </form>
+    </div>
+
+</div>

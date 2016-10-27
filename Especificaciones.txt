@@ -1,0 +1,45 @@
+Recordatorio:
+-guardarAdminHotel:: debe poder editar por q ahora crea un nuevo usuario.
+
+
+
+Opciones de implementacion:
+-agregar perfil por habitacion detallando todo los servicios internos q dispone para mejor aprecion 
+y atraccion por parte del usuario
+
+
+
+
+
+Especificaciones del Sistema:
+
+- estadistica.: habitaciones ocupadas
+				reservas realisadas
+				ganancias
+
+
+
+
+
+Glosario:
+Administrador del Sistema: Es la persona que tiene acceso a todo el sistema de todos 				los hoteles (sucursales), es el único que puede crear hoteles, asignar 					administradores y crear los cargos.
+
+Administrador del hotel(sucursal): El administrador solo tendrá acceso a la información 			del hotel que se le fue asignado.
+
+1. Los cargos son creados por el administrador general
+
+Cargos y hoteles
+Asignar administrador de hotel
+Sistema Gestor de Contenido
+
+index(ok)
+galeria (titulo- stile simple)(ok)
+contacto(mapa)(ok)
+
+
+galeria de fotos por servicio. videos -menu fijo con elementos desplegables -
+
+perfin de habitacion
+galeria de fotos por habitacion(iconografia). videos
+!pasar el id de la habitacion para mostrar infomacion de la habitacion!
+

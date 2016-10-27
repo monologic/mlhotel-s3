@@ -1,0 +1,211 @@
+<div id="page-wrapper" ng-controller="registroController" ng-init="buscarRegistro();" style="width: 90%;margin:40px auto 100px auto;color: black">
+	<br><br><br>
+	<div class="row" style="top: 20px">
+		<h1 class="tit2">Detalles de Habitación</h1><br>
+		<table>
+			<tbody>
+				<tr style="height: 30px">
+					<td class="text-right" width="150">Tipo de habitación :</td>
+					<td style="padding-left: 20px">{{ registro.habitacion.habtipo.nombre }}</td>
+				</tr>
+				<tr style="height: 30px">
+					<td class="text-right" width="150">Número habitación :</td>
+					<td style="padding-left: 20px">{{ registro.habitacion.numero }}</td>
+				</tr>
+				<tr style="height: 30px">
+					<td class="text-right" width="150">Máximo de personas :</td>
+					<td style="padding-left: 20px" id="cantidadp" >{{ registro.habitacion.habtipo.nropersonas }}</td>
+				</tr>
+			</tbody>
+		</table>
+		<br>
+		<div class="col-sm-12 col-md-4 infos">
+			<p>Fecha Entrada :</p>
+			<p style="margin-left: 35px">{{ registro.fe | date:'d MMM yyyy' }} a las {{ registro.he }}</p>
+		</div>
+		<div class="col-sm-12 col-md-4 infos">
+			<p>Fecha Salida :</p>
+			<p style="margin-left: 35px">{{ registro.fe2 | date:'d MMM yyyy' }} a las {{ registro.he2 }}</p>
+		</div>
+		<div class="col-sm-12 col-md-4 infos">
+			<p>Código de Reserva :</p>
+			<p style="margin-left: 35px">{{ registro.codigo_reserva }}</p>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-12 col-md-7 cont-hues">
+			<h3>Huéspedes</h3>
+			<div class="separador"></div>
+			<button id="btnAdd" class="btn btn-success" onclick="sal()" style="margin-top:-40px;float: right"><i class="glyphicon glyphicon-plus"></i></button>
+			<table class="table table-hover">
+				<thead>
+					<tr>
+						<th>Nombre</th>
+						<th>Procedencia</th>
+						<th>Destino</th>
+						<th>Eliminar</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="huesped in regClientes">
+						<td>{{huesped.cliente.nombres}} {{huesped.cliente.apellidos}}</td>
+						<td>{{huesped.procedencia}}</td>
+						<td>{{huesped.destino}}</td>
+						<td>
+							<a href="" class="btn btn-warning" ng-click="eliminarHuesped(huesped.id);">X</a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<object class="addcliente" id="caja">
+		<div style="display:block;background-color: #4183D7;height: 50px;padding: 15px">
+			<div class="text-center" style="display: block;font-size: 1.5rem;font-weight: bold;color: white;">Registro de Huéspedes</div>
+		</div>
+		
+		<div class="form-registro">
+			<br>
+			<div class="form-group">
+				<label for="exampleInputEmail1">DNI</label>
+				<div class="form-inline" style="width: 100%">
+					<input type="text" class="form-control" id="" placeholder="Documento de Indentidad" ng-blur="buscarHuesped();" ng-model="dni">
+				</div>
+			    
+			</div>
+			<br>
+			<div class="form-group">
+				<label for="exampleInputEmail1">Nombres</label>
+			    <input type="text" class="form-control" id="nom" placeholder="" ng-model="nombres">
+			</div>
+			<div class="form-group">
+				<label for="exampleInputEmail1">Apellidos</label>
+			    <input type="text" class="form-control" id="" placeholder="" ng-model="apellidos">
+			</div>
+			<div class="radio">
+			  <label>
+			    <input type="radio" name="optionsRadios" id="sexo" ng-model="sexo" value="Masculino" checked>
+			    Hombre
+			  </label>
+			   <label>
+			    <input type="radio" name="optionsRadios" id="sexo" ng-model="sexo" value="Femenino" >
+			    Mujer
+			  </label>
+			</div>
+			<div class="form-group">
+				<label for="exampleInputEmail1">Fecha de Nacimiento</label>
+			    <input type="date" class="form-control" id="" ng-model="fechanac">
+			    <div class="cl" style="margin-left: 120px"><img class="cld" src="plugins/css/imgc.png" alt=""></div>
+			</div>
+			<div class="form-group">
+				<p style="font-weight: bold;">Estado Civil</p>
+				<select class="form-control" ng-model="estadoCivil" placeholder="">
+					<option>Soltero</option>
+					<option>Casado</option>
+					<option>Viudo</option>
+					<option>Divorciado</option>
+				</select>
+			</div>
+			<div class="form-group">
+				<p style="font-weight: bold;">País</p>
+				<select for="pais" class="form-control"  ng-model="pais" ng-change="inputRegion();">
+					<option>Estados Unidos</option>
+					<option>Perú</option>
+					<option>Chile</option>
+					<option>Bolivia</option>
+					<option>Colombia</option>
+					<option>Uruguay</option>
+					<option>México</option>
+					<option>Venezuela</option>
+					<option>Colombia</option>
+					<option>Otros</option>
+				</select>
+			</div>
+			<div class="form-group" id="regText">
+				<label for="exampleInputEmail1">Región</label>
+			    <input type="text" class="form-control" placeholder="" id="ciudadText">
+			</div>
+			<div class="form-group" id="region" style="display:none">
+				<label for="">Región</label>
+			    <select class="form-control" id="ciudad">
+				    <option value="Amazonas">Amazonas</option>
+				    <option value="Ancash">Ancash</option>
+					<option value="Apurimac">Apurimac</option>
+					<option value="Arequipa">Arequipa</option>
+					<option value="Ayacucho">Ayacucho</option>
+					<option value="Cajamarca">Cajamarca</option>
+					<option value="Callao">Callao</option>
+					<option value="Cusco">Cusco</option>
+					<option value="Huancavelica">Huancavelica</option>
+					<option value="Huánuco">Huánuco</option>
+					<option value="Ica">Ica</option>
+					<option value="Junín">Junín</option>
+					<option value="La Libertad">La Libertad</option>
+					<option value="Lambayeque">Lambayeque</option>
+					<option value="Lima">Lima</option>
+					<option value="Loreto">Loreto</option>
+					<option value="Madre De Dios">Madre De Dios</option>
+					<option value="Moquegua">Moquegua</option>
+					<option value="Pasco">Pasco</option>
+					<option value="Piura">Piura</option>
+					<option value="Puno">Puno</option>
+					<option value="San Martin">San Martin</option>
+					<option value="Tacna">Tacna</option>
+					<option value="Tumbes">Tumbes</option>
+					<option value="Ucayali">Ucayali</option>
+				</select>
+			</div>
+			<div class="form-group">
+				<label for="exampleInputEmail1">Procedencia</label>
+			    <input type="text" class="form-control" id="" placeholder="" ng-model="procedencia">
+			</div>
+			<div class="form-group">
+				<label for="exampleInputEmail1">Destino</label>
+			    <input type="text" class="form-control" id="" placeholder="" ng-model="destino">
+			</div>
+			<div class="form-group">
+				<label for="exampleInputEmail1">Teléfono móvil</label>
+			    <input type="text" class="form-control" id="" placeholder="" ng-model="celular">
+			</div>
+			<div class="form-group">
+				<label for="exampleInputEmail1">E-mail</label>
+			    <input type="email" class="form-control" id="" placeholder="" ng-model="email">
+			</div>
+			<div class="form-group">
+				<label for="exampleInputEmail1">Profesión u Ocupación</label>
+			    <input type="text" class="form-control" id="" placeholder="" ng-model="prof_ocup">
+			</div>
+			<div ng-if="cantHuesped < registro.habitacion.habtipo.nropersonas" style="margin: 40px auto 50px auto">
+				<div class="form-group" ng-if="huesped == 'false'">
+					<a class="btn btn-primary center-block" ng-click="nuevoHuesped();">+ Agregar</a>
+				</div>
+				<div class="form-group" ng-if="huesped == 'true'">
+					<a class="btn btn-primary center-block" ng-click="editarHuesped();">+ Agregar</a>
+				</div>
+			</div>
+			<div ng-if="cantHuesped >= registro.habitacion.habtipo.nropersonas">
+				<p>Esta habitación está llena</p>
+			</div>
+
+		</object>
+
+	
+	<br>
+	<a href="admin#/DetalleHabitaciones" class="btn btn-primary">Guardar Cambios</a>
+</div>
+
+<script>
+	var clic = 1;
+    function sal(){ 
+    if(clic==1){
+       document.getElementById("caja").style.width = "350px";
+       document.getElementById("caja").style.transition = "all 1s";
+       clic = clic + 1;
+    } else
+    {
+       document.getElementById("caja").style.width = "0px"; 
+       document.getElementById("caja").style.transition = "all 1s";     
+       clic = 1;
+   }   
+}
+</script>

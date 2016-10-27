@@ -1,0 +1,31 @@
+<div id="page-wrapper" ng-controller="bancoController">
+<br><br>
+<label>{{mensaje}}</label>
+   
+    <h3 class="text-center tit2">Crear Banco</h3>
+    <div class="formularios">    
+    <form method="POST" action="admin/banco" accept-charset="UTF-8" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="banco">Nombre de Banco</label>
+            <input type="text" class="form-control" id="banco" ng-model="banco" name="banco" required>
+        </div>
+        <div class="form-group">
+            <label for="cuenta">Cuenta</label>
+            <input type="text" class="form-control" id="cuenta" ng-model="cuenta" name="cuenta" required>
+        </div>
+         <div class="form-group">
+            <label for="cci">CCI</label>
+            <input type="text" class="form-control" id="cci" ng-model="cci" name="cci" required>
+        </div>
+        <div class="form-group">
+            <label for="imagen">Seleccione imagen</label>
+            <input name="imagen" type="file" id="imagen" required>
+        </div>
+        
+        <div class="inputs">
+            <button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-ok" aria-hidden="true">Guardar</button><br>
+        </div>
+    </form>
+    </div>
+
+</div>

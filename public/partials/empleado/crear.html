@@ -1,0 +1,84 @@
+<div id="page-wrapper" ng-controller="empleadoController" ng-init="getEmptipos();getUsuarioTipos();">
+
+    <h3 class="text-center tit2">Registro de Usuario</h3>
+    <div class="formularios">
+
+        <form ng-submit="enviar()" id="myForm">
+            <div class="form-group">Información de Usuario</div>
+            <div class="form-group ">
+                <label for="usuario">Usuario</label>
+                <input type="text" class="form-control" id="usuario" ng-model="usuario" placeholder="Escriba su usuario al sistema" required>
+            </div>
+            <div id="divp" class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" id="password" ng-model="password" placeholder="Ingrese una Contraseña" required>
+            </div>
+            <div id="divp2" class="form-group">
+                <label for="password">Reescriba el Password</label>
+                <input type="password" class="form-control" id="password2" ng-model="password2" placeholder="Escriba nuevamente la Contraseña" required onblur="blurFunction()">
+            </div>
+            <div class="form-group">
+                <label>Tipo de Usuario</label>
+                <select id="usuariotipo_id" ng-model='usuariotipo_id' ng-options="usuarioTipo.nombre for usuarioTipo in usuarioTipos track by usuarioTipo.id" class="form-control" required>
+                    <option value="">Seleccione una Opción...</option>
+                </select>
+            </div>
+            <br>
+            <div class="form-group">Información Personal</div>
+            <div class="form-group ">
+                <label for="exampleInputEmail1">Nombres</label>
+                <input type="text" class="form-control" id="nombre" placeholder="Nombres" ng-model="nombre" required>
+            </div>
+            <div class="form-group ">
+                <label for="exampleInputEmail1">Apellidos</label>
+                <input type="text" class="form-control" id="apellido" placeholder="Apellidos" ng-model="apellido" required>
+            </div>
+            <div class="radio">Sexo:
+                <label>
+                    <input type="radio" name="sexo" id="sexo" value="Masculino" required>
+                    Masculino
+                </label>
+                <label>
+                    <input type="radio" name="sexo" id="sexo" value="Femenino" required>
+                    Femenino
+                </label>
+
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Fecha de Nacimiento</label>
+                <input type="date" class="form-control" id="nacimiento" ng-model="nacimiento" required>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">DNI</label>
+                <input type="text" class="form-control" id="dni" placeholder="Numero de DNI" ng-model="dni" required>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Dirección</label>
+                <input type="text" class="form-control" id="direccion" placeholder="Dirección donde reside" ng-model="direccion" required>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Número telefónico</label>
+                <input type="text" class="form-control" id="celular" placeholder="Número telefónico o celular" ng-model="celular" required>
+            </div>
+            
+            <div class="inputs">
+                <button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-ok" aria-hidden="true">Guardar</button><br>
+            </div>
+        </form>
+    </div>
+    <script>
+        function blurFunction() {
+            if($('#password').val() == $('#password2').val()){
+                $('#divp').removeClass( "has-error" ).addClass( "has-success" );
+                $('#divp2').removeClass( "has-error" ).addClass( "has-success" );
+            }
+            else{
+                alert('Las contraseñas no coinciden');
+                $('#divp').removeClass( "has-success" ).addClass( "has-error" );
+                $('#divp2').removeClass( "has-success" ).addClass( "has-error" );
+            }
+        }
+        </script>
+
+</div>
+<br><br><br>
