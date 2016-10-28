@@ -99,23 +99,23 @@
 					    		<hr>
 					            <div class="form-group" style="margin-top:5px">
 									<label for="nombre">Nombres</label>
-					            	<input id="nombre" type="text" class="form-control" ng-model="nombres"  required> 	
+					            	<input id="nombre" type="text" class="form-control" style="padding:0" ng-model="nombres"  required> 	
 					            </div>
 					            <div class="form-group">
 					            	<label for="apellido">Apellidos</label>
-					              <input id="apellido" type="text" class="form-control" ng-model="apellidos" required>
+					              <input id="apellido" type="text" class="form-control" style="padding:0" ng-model="apellidos" required>
 					            </div>
 					            <div class="form-group">
 									<label for="dni">Identificación (DNI)</label>
-					            	<input id="dni" type="text" class="form-control" ng-model="dni" required>
+					            	<input id="dni" type="text" class="form-control" style="padding:0" ng-model="dni" required>
 					            </div>
 					            <div class="form-group">
 					            	<label for="tel" style="color: #6C7A89;margin-bottom: 0px">Teléfono (opcional)</label>
-					              	<input id="tel" type="text" class="form-control" ng-model="telefono" >
+					              	<input id="tel" type="text" class="form-control" style="padding:0" ng-model="telefono" >
 					            </div>
 					            <div class="form-group">
 					            	<label for="email">Email</label>
-					              	<input id="email" type="email" class="form-control" ng-model="email" required>
+					              	<input id="email" type="email" class="form-control" style="padding:0" ng-model="email" required>
 					            </div>
 					            <div class="form-group">
 					              <input type="checkbox" id="test5" ng-model="terminos" ng-change="activarBtn()" class="validate" /><label for="test5" style="color: black;font-size: 1.2rem">Por favor <a style="font-size: 1rem" class="modal-trigger"  href="#modal1"> leer y aceptar </a>  los términos y condiciones. Gracias.</label>

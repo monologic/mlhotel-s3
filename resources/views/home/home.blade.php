@@ -58,7 +58,7 @@
 							<i class="{{$i->icono}}" style="color:black"></i>
 							<div class="desc">
 								<h3>{{$i->nombre}}</h3>
-								<p style="font-size:14px">{{$i->descripcion}}</p>
+								<p style="font-size:14px;height:85px">{{$i->descripcion}}</p>
 							</div>
 						</div>
 					</div>

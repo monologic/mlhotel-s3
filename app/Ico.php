@@ -8,5 +8,5 @@ class Ico extends Model
 {
     public $timestamps = false;
     
-     protected $fillable = ['nombre', 'icono','descripcion'];
+     protected $fillable = ['nombre', 'icono','descripcion','estado'];
 }

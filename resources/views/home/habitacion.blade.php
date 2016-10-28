@@ -41,8 +41,8 @@
 			      </div>
 			</section>
 			<section class="col-md-3">
-				<div class="box-reservar">
-					<ul>
+				<div style="background-color:white;padding:20px 0px;margin-bottom:10px">
+					<ul style="list-style:none">
 					<li><h4 class="text-center">Servicios : </h4></li>
 			           @foreach($datos as $i)
 			            	@foreach($i->habtipo_serviciointernos as $j)

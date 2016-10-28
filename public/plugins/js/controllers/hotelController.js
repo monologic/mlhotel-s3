@@ -296,4 +296,27 @@ app.controller('hotelController', function($scope,$http) {
         // or server returns response with an error status.
         });
     }
+    $scope.editarIco = function (x){
+        $scope.yes = 'false';
+        $scope.tab = 'true';
+        $scope.ic = x;
+    }
+    $scope.tab = 'false';
+    $scope.yes = 'false';
+    $scope.cl= function(r){
+        $scope.tab = r;
+    }
+    $scope.guardarIco = function(x){
+        $http.put('admin/icogeneral/'+x.id,
+                {   
+                    'nombre':x.nombre,
+                    'descripcion':x.descripcion,
+                    'estado':x.estado
+                }).then(function successCallback(response) {
+                    $scope.getHoteles();
+                    $scope.yes = 'true'
+                }, function errorCallback(response) {
+                    
+                });
+    }
 });

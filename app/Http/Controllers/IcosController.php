@@ -71,7 +71,7 @@ class IcosController extends Controller
     public function update(Request $request, $id)
     {
         $iconos = Ico::find($id);
-        $iconos->estado = $request->estado;
+        $iconos->fill($request->all());
         $iconos->save(); 
         $res = $this->hoteliconos();
 

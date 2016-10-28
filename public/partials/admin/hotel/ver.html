@@ -245,6 +245,17 @@
                         <div class="tab-pane" id="servicios" style="color: black">
                             <br>
                             <p>Seleciones las opciones.</p>
+                            <div class="edit-icos" ng-if="tab == 'true'">
+                                 <button type="button" class="close" style="margin-top:-10px" ng-click="cl('false')"><span>&times;</span></button>
+                                <h3>Editar Icono</h3>
+                                <div class="alert alert-success" role="alert" ng-if="yes == 'true'">Los datos se guardaron Exitosamente. <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>
+                                <i class="{{ic.icono}}"></i>
+                                <label for="">Nombre</label>
+                                <input type="text" ng-model="ic.nombre" class="form-control">
+                                <label for="">Descripci&oacute;n</label>
+                                <textarea name="" id="" ng-model = "ic.descripcion" class="form-control" cols="30" rows="4"></textarea>
+                                <button class="btn btn-primary" ng-click="guardarIco(ic)" style="margin-top:10px">Guardar</button>
+                            </div>
                             <br>
                             <div class="row reds" >
                                 <div>
@@ -255,7 +266,9 @@
                                             <label for=""></label>
                                             <i class="{{servicios.icono}}" style="text-align: center;font-size:3.5rem;z-index: 10px;"></i>
                                             <div style="font-size: 1.4rem;text-align: center">{{servicios.nombre}}</div>
+                                            <button class="btn btn-success" ng-click="editarIco(servicios)">Editar</button>
                                         </div>
+                                        
                                     </div>
                                     <div ng-if="servicios.estado=='false'">
                                         <div style="text-align:center">
@@ -263,7 +276,9 @@
                                             <label for=""></label>
                                             <i class="{{servicios.icono}}" style="text-align: center;font-size:3.5rem;"></i>
                                             <div style="font-size: 1.4rem;text-align: center">{{servicios.nombre}}</div>
+                                            <button class="btn btn-success" ng-click="editarIco(servicios)">Editar</button>
                                         </div>
+                                        
                                     </div>
                             </div>
                         </div>
