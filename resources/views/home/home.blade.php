@@ -47,15 +47,14 @@
 			<div class="row">
 				<div class="col-md-6 col-md-offset-3 text-center fh5co-heading animate-box">
 					<h2>Nuestros servicios</h2>
-					<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
 				</div>
 			</div>
 			<div class="row">
 			@foreach ($datos[1] as $i)
 				@if ($i->estado == 'true')
 					<div class="col-md-4 animate-box">
-						<div class="services">
-							<i class="{{$i->icono}}" style="color:black"></i>
+						<div class="services glyph">
+							<i class="glyph-icon {{$i->icono}}" style="color:black;font-size:2rem"></i>
 							<div class="desc">
 								<h3>{{$i->nombre}}</h3>
 								<p style="font-size:14px;height:85px">{{$i->descripcion}}</p>

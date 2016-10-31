@@ -31,7 +31,7 @@
 					<div style="margin-top:-25px" id="@{{y.id}}"></div>
 					<hr>
 					<div class="cont-ico" ng-repeat="w in y.habtipo_serviciointernos" ng-if="w.estado=='true'">
-							<div class="to"><i class="@{{w.serviciointerno.icono}} to"></i>
+							<div class="to"><i class="@{{w.serviciointerno.icono}} to" style="font-size:20px"></i>
 								<span class="tooltiptext">@{{w.serviciointerno.nombre}}</span>
 							</div>
 					</div>

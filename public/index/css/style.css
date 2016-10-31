@@ -11,6 +11,11 @@
 *	Edit this section
 *
 * ======================================================= */
+.glyph .glyph-icon:before {
+    font-size: 48px;
+    color: #222;
+    margin-left: 0;
+}
 body {
   font-family: "Raleway", Arial, sans-serif;
   font-weight: 400;

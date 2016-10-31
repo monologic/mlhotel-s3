@@ -1,6 +1,6 @@
 	/*
   	Flaticon icon font: Flaticon
-  	Creation date: 11/04/2016 16:54
+  	Creation date: 31/10/2016 19:13
   	*/
 
 @font-face {
@@ -24,26 +24,44 @@
 [class^="flaticon-"]:before, [class*=" flaticon-"]:before,
 [class^="flaticon-"]:after, [class*=" flaticon-"]:after {   
   font-family: Flaticon;
+        font-size: 20px;
 font-style: normal;
 margin-left: 20px;
 }
 
-.flaticon-beber:before { content: "\f100"; }
-.flaticon-casa:before { content: "\f101"; }
-.flaticon-dos:before { content: "\f102"; }
-.flaticon-herramienta:before { content: "\f103"; }
-.flaticon-ordenador:before { content: "\f104"; }
-.flaticon-otro:before { content: "\f105"; }
-.flaticon-otro-1:before { content: "\f106"; }
-.flaticon-otro-2:before { content: "\f107"; }
-.flaticon-otro-3:before { content: "\f108"; }
-.flaticon-otro-4:before { content: "\f109"; }
-.flaticon-personas:before { content: "\f10a"; }
-.flaticon-personas-1:before { content: "\f10b"; }
-.flaticon-restaurante:before { content: "\f10c"; }
-.flaticon-seguridad:before { content: "\f10d"; }
-.flaticon-tecnologia:before { content: "\f10e"; }
-.flaticon-tecnologia-1:before { content: "\f10f"; }
-.flaticon-telefono:before { content: "\f110"; }
-.flaticon-vehiculo:before { content: "\f111"; }
-.flaticon-vendimia:before { content: "\f112"; }
+.flaticon-aparcamiento:before { content: "\f100"; }
+.flaticon-beber:before { content: "\f101"; }
+.flaticon-cajero-automatico:before { content: "\f102"; }
+.flaticon-carrusel:before { content: "\f103"; }
+.flaticon-casa:before { content: "\f104"; }
+.flaticon-coctel:before { content: "\f105"; }
+.flaticon-diferentes-divisas:before { content: "\f106"; }
+.flaticon-dos:before { content: "\f107"; }
+.flaticon-ejercer:before { content: "\f108"; }
+.flaticon-herramienta:before { content: "\f109"; }
+.flaticon-imagenes-de-la-tierra:before { content: "\f10a"; }
+.flaticon-lavanderia:before { content: "\f10b"; }
+.flaticon-maquina-traga-perras-con-sietes:before { content: "\f10c"; }
+.flaticon-monovolumen:before { content: "\f10d"; }
+.flaticon-ordenador:before { content: "\f10e"; }
+.flaticon-otro:before { content: "\f10f"; }
+.flaticon-otro-1:before { content: "\f110"; }
+.flaticon-otro-2:before { content: "\f111"; }
+.flaticon-otro-3:before { content: "\f112"; }
+.flaticon-otro-4:before { content: "\f113"; }
+.flaticon-personas:before { content: "\f114"; }
+.flaticon-personas-1:before { content: "\f115"; }
+.flaticon-piscina:before { content: "\f116"; }
+.flaticon-pista-de-baloncesto:before { content: "\f117"; }
+.flaticon-restaurante:before { content: "\f118"; }
+.flaticon-sala-de-conferencias:before { content: "\f119"; }
+.flaticon-seguridad:before { content: "\f11a"; }
+.flaticon-silueta-de-persona-en-el-sauna:before { content: "\f11b"; }
+.flaticon-sofa:before { content: "\f11c"; }
+.flaticon-te:before { content: "\f11d"; }
+.flaticon-tecnologia:before { content: "\f11e"; }
+.flaticon-tecnologia-1:before { content: "\f11f"; }
+.flaticon-telefono:before { content: "\f120"; }
+.flaticon-tumbona:before { content: "\f121"; }
+.flaticon-vehiculo:before { content: "\f122"; }
+.flaticon-vendimia:before { content: "\f123"; }

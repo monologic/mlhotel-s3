@@ -1,6 +1,6 @@
     /*
     Flaticon icon font: Flaticon
-    Creation date: 11/04/2016 16:54
+    Creation date: 31/10/2016 19:13
     */
 
     @font-face {
@@ -36,42 +36,76 @@
   font-smoothing: antialiased;
     }
 
-    .flaticon-beber:before { content: "\f100"; }
-.flaticon-casa:before { content: "\f101"; }
-.flaticon-dos:before { content: "\f102"; }
-.flaticon-herramienta:before { content: "\f103"; }
-.flaticon-ordenador:before { content: "\f104"; }
-.flaticon-otro:before { content: "\f105"; }
-.flaticon-otro-1:before { content: "\f106"; }
-.flaticon-otro-2:before { content: "\f107"; }
-.flaticon-otro-3:before { content: "\f108"; }
-.flaticon-otro-4:before { content: "\f109"; }
-.flaticon-personas:before { content: "\f10a"; }
-.flaticon-personas-1:before { content: "\f10b"; }
-.flaticon-restaurante:before { content: "\f10c"; }
-.flaticon-seguridad:before { content: "\f10d"; }
-.flaticon-tecnologia:before { content: "\f10e"; }
-.flaticon-tecnologia-1:before { content: "\f10f"; }
-.flaticon-telefono:before { content: "\f110"; }
-.flaticon-vehiculo:before { content: "\f111"; }
-.flaticon-vendimia:before { content: "\f112"; }
+    .flaticon-aparcamiento:before { content: "\f100"; }
+.flaticon-beber:before { content: "\f101"; }
+.flaticon-cajero-automatico:before { content: "\f102"; }
+.flaticon-carrusel:before { content: "\f103"; }
+.flaticon-casa:before { content: "\f104"; }
+.flaticon-coctel:before { content: "\f105"; }
+.flaticon-diferentes-divisas:before { content: "\f106"; }
+.flaticon-dos:before { content: "\f107"; }
+.flaticon-ejercer:before { content: "\f108"; }
+.flaticon-herramienta:before { content: "\f109"; }
+.flaticon-imagenes-de-la-tierra:before { content: "\f10a"; }
+.flaticon-lavanderia:before { content: "\f10b"; }
+.flaticon-maquina-traga-perras-con-sietes:before { content: "\f10c"; }
+.flaticon-monovolumen:before { content: "\f10d"; }
+.flaticon-ordenador:before { content: "\f10e"; }
+.flaticon-otro:before { content: "\f10f"; }
+.flaticon-otro-1:before { content: "\f110"; }
+.flaticon-otro-2:before { content: "\f111"; }
+.flaticon-otro-3:before { content: "\f112"; }
+.flaticon-otro-4:before { content: "\f113"; }
+.flaticon-personas:before { content: "\f114"; }
+.flaticon-personas-1:before { content: "\f115"; }
+.flaticon-piscina:before { content: "\f116"; }
+.flaticon-pista-de-baloncesto:before { content: "\f117"; }
+.flaticon-restaurante:before { content: "\f118"; }
+.flaticon-sala-de-conferencias:before { content: "\f119"; }
+.flaticon-seguridad:before { content: "\f11a"; }
+.flaticon-silueta-de-persona-en-el-sauna:before { content: "\f11b"; }
+.flaticon-sofa:before { content: "\f11c"; }
+.flaticon-te:before { content: "\f11d"; }
+.flaticon-tecnologia:before { content: "\f11e"; }
+.flaticon-tecnologia-1:before { content: "\f11f"; }
+.flaticon-telefono:before { content: "\f120"; }
+.flaticon-tumbona:before { content: "\f121"; }
+.flaticon-vehiculo:before { content: "\f122"; }
+.flaticon-vendimia:before { content: "\f123"; }
     
-    $font-Flaticon-beber: "\f100";
-    $font-Flaticon-casa: "\f101";
-    $font-Flaticon-dos: "\f102";
-    $font-Flaticon-herramienta: "\f103";
-    $font-Flaticon-ordenador: "\f104";
-    $font-Flaticon-otro: "\f105";
-    $font-Flaticon-otro-1: "\f106";
-    $font-Flaticon-otro-2: "\f107";
-    $font-Flaticon-otro-3: "\f108";
-    $font-Flaticon-otro-4: "\f109";
-    $font-Flaticon-personas: "\f10a";
-    $font-Flaticon-personas-1: "\f10b";
-    $font-Flaticon-restaurante: "\f10c";
-    $font-Flaticon-seguridad: "\f10d";
-    $font-Flaticon-tecnologia: "\f10e";
-    $font-Flaticon-tecnologia-1: "\f10f";
-    $font-Flaticon-telefono: "\f110";
-    $font-Flaticon-vehiculo: "\f111";
-    $font-Flaticon-vendimia: "\f112";
+    $font-Flaticon-aparcamiento: "\f100";
+    $font-Flaticon-beber: "\f101";
+    $font-Flaticon-cajero-automatico: "\f102";
+    $font-Flaticon-carrusel: "\f103";
+    $font-Flaticon-casa: "\f104";
+    $font-Flaticon-coctel: "\f105";
+    $font-Flaticon-diferentes-divisas: "\f106";
+    $font-Flaticon-dos: "\f107";
+    $font-Flaticon-ejercer: "\f108";
+    $font-Flaticon-herramienta: "\f109";
+    $font-Flaticon-imagenes-de-la-tierra: "\f10a";
+    $font-Flaticon-lavanderia: "\f10b";
+    $font-Flaticon-maquina-traga-perras-con-sietes: "\f10c";
+    $font-Flaticon-monovolumen: "\f10d";
+    $font-Flaticon-ordenador: "\f10e";
+    $font-Flaticon-otro: "\f10f";
+    $font-Flaticon-otro-1: "\f110";
+    $font-Flaticon-otro-2: "\f111";
+    $font-Flaticon-otro-3: "\f112";
+    $font-Flaticon-otro-4: "\f113";
+    $font-Flaticon-personas: "\f114";
+    $font-Flaticon-personas-1: "\f115";
+    $font-Flaticon-piscina: "\f116";
+    $font-Flaticon-pista-de-baloncesto: "\f117";
+    $font-Flaticon-restaurante: "\f118";
+    $font-Flaticon-sala-de-conferencias: "\f119";
+    $font-Flaticon-seguridad: "\f11a";
+    $font-Flaticon-silueta-de-persona-en-el-sauna: "\f11b";
+    $font-Flaticon-sofa: "\f11c";
+    $font-Flaticon-te: "\f11d";
+    $font-Flaticon-tecnologia: "\f11e";
+    $font-Flaticon-tecnologia-1: "\f11f";
+    $font-Flaticon-telefono: "\f120";
+    $font-Flaticon-tumbona: "\f121";
+    $font-Flaticon-vehiculo: "\f122";
+    $font-Flaticon-vendimia: "\f123";
