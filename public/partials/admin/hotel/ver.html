@@ -261,21 +261,21 @@
                                 <div>
                                    <label class="checkbox-inline col-md-3 col-xs-4" ng-repeat="servicios in iconoshotel" style="margin-left:0px; margin-bottom: 60px;padding-top: 0">
                                     <div ng-if="servicios.estado=='true'">
-                                        <div  class="col-xs-12" style="text-align:center">
+                                        <div  class="col-xs-12 glyph" style="text-align:center">
                                             <input type="checkbox" id="{{servicios.id}}i" value="option1" checked="" style="margin-top: 20%;display: none">
                                             <label for=""></label>
-                                            <i class="{{servicios.icono}}" style="text-align: center;font-size:3.5rem;z-index: 10px;"></i>
-                                            <div style="font-size: 1.4rem;text-align: center">{{servicios.nombre}}</div>
+                                            <i class="glyph-icon {{servicios.icono}}" style="text-align: center;font-size:3.5rem;z-index: 10px;"></i>
+                                            <div style="font-size: 1.2rem;text-align: center;min-height:50px">{{servicios.nombre}}</div>
                                             <button class="btn btn-success" ng-click="editarIco(servicios)">Editar</button>
                                         </div>
                                         
                                     </div>
                                     <div ng-if="servicios.estado=='false'">
-                                        <div style="text-align:center">
+                                        <div class="col-xs-12 glyph" style="text-align:center">
                                             <input type="checkbox" id="{{servicios.id}}i" value="option1" style="margin-top: 20%;display: none">
                                             <label for=""></label>
-                                            <i class="{{servicios.icono}}" style="text-align: center;font-size:3.5rem;"></i>
-                                            <div style="font-size: 1.4rem;text-align: center">{{servicios.nombre}}</div>
+                                            <i class="glyph-icon {{servicios.icono}}" style="text-align: center;font-size:3.5rem;"></i>
+                                            <div style="font-size: 1.2rem;text-align: center;min-height:50px">{{servicios.nombre}}</div>
                                             <button class="btn btn-success" ng-click="editarIco(servicios)">Editar</button>
                                         </div>
                                         

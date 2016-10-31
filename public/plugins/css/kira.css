@@ -6,6 +6,11 @@
 	list-style-type: none;
 	list-style: none;
 }
+.glyph .glyph-icon:before {
+    font-size: 48px;
+    color: #222;
+    margin-left: 0;
+}
 .edit-icos{
 	width: 90%;
 	margin: 10px auto 10px auto;
