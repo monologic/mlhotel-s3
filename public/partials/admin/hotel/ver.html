@@ -246,7 +246,7 @@
                             <br>
                             <p>Seleciones las opciones.</p>
                             <div class="edit-icos" ng-if="tab == 'true'">
-                                 <button type="button" class="close" style="margin-top:-10px" ng-click="cl('false')"><span>&times;</span></button>
+                                <button type="button" class="close" style="margin-top:-10px" ng-click="cl('false')"><span>&times;</span></button>
                                 <h3>Editar Icono</h3>
                                 <div class="alert alert-success" role="alert" ng-if="yes == 'true'">Los datos se guardaron Exitosamente. <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>
                                 <i class="{{ic.icono}}"></i>
@@ -267,8 +267,7 @@
                                             <i class="glyph-icon {{servicios.icono}}" style="text-align: center;font-size:3.5rem;z-index: 10px;"></i>
                                             <div style="font-size: 1.2rem;text-align: center;min-height:50px">{{servicios.nombre}}</div>
                                             <button class="btn btn-success" ng-click="editarIco(servicios)">Editar</button>
-                                        </div>
-                                        
+                                        </div>   
                                     </div>
                                     <div ng-if="servicios.estado=='false'">
                                         <div class="col-xs-12 glyph" style="text-align:center">
@@ -277,13 +276,12 @@
                                             <i class="glyph-icon {{servicios.icono}}" style="text-align: center;font-size:3.5rem;"></i>
                                             <div style="font-size: 1.2rem;text-align: center;min-height:50px">{{servicios.nombre}}</div>
                                             <button class="btn btn-success" ng-click="editarIco(servicios)">Editar</button>
-                                        </div>
-                                        
+                                        </div>                                       
                                     </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    
+                    </div>             
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -307,18 +305,6 @@
                     </ul>
                     <div class="tab-content">
                         <div class="tab-pane active" id="home">
-                            <div class="formularios">
-                                <form ng-submit="actualizarUsuario(idUsuario)">
-                                    <h3>Editar Nombre de Usuario</h3>
-                                    <div class="form-group ">
-                                        <label for="usuario">Usuario</label>
-                                        <input type="text" class="form-control" id="usuario" ng-model="usuario" placeholder="Escriba su usuario al sistema" required />
-                                    </div>
-                                    <div class="inputs">
-                                        <button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Guardar</button><br>
-                                    </div>
-                                </form>
-                            </div>
                             <div class="formularios">
                                 <form ng-submit="actualizarPassword(idUsuario)">
                                     <h3>Editar Contraseña</h3>
